@@ -11,5 +11,6 @@ Description:
     3.Readers can view and order books online for delivery or they can buy e-books.
     
     
-    ![image](https://user-images.githubusercontent.com/59819486/180636073-46026390-fd74-4a78-a845-970f78311643.png)
+Entity-Relationship diagram:
 
+<img style="margin-left:30%;" width="432" alt="erd" src="https://user-images.githubusercontent.com/59819486/180636125-9b663d3a-d78c-49e9-b8fe-d1aa962aa5e3.PNG">
