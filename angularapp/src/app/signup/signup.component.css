@@ -1,0 +1,47 @@
+.bg{
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+.reghead{
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 30%;
+ 
+ }
+
+.label{
+    margin-top: 3%;
+ }
+ 
+ .regin{
+    margin-left: 10px;
+    margin-top: -5px;
+    height: 100%;
+    width: 80%;
+ }
+ .regin2{
+    margin-left: 10px;
+    margin-top: -5px;
+    height: 100%;
+    width: 90%;
+    
+ }
+ .reglab{
+    margin-top: -10px;
+ }
+ 
+ .regbtn{
+    justify-content: center;
+    width: 20%;
+    margin-left: 30%;
+    margin-top: 3%;
+ }
+
+ .input{
+    margin-top: 2%;
+ }
+
+ .first{
+    margin-top: 5%;
+ }
