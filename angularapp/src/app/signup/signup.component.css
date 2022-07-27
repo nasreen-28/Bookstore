@@ -1,6 +1,7 @@
 .bg{
     margin-top: 4%;
     margin-left: 4%;
+    position: absolute;
 }
 
 .reghead{
@@ -11,7 +12,9 @@
  }
 
 .label{
-    margin-top: 3%;
+    margin-top: 1%;
+    padding-top: 1%;
+   
  }
  
  .regin{
@@ -39,9 +42,24 @@
  }
 
  .input{
-    margin-top: 2%;
+    margin-top: 1%;
+    margin-right: 1%;
  }
 
  .first{
-    margin-top: 5%;
+    margin-top: 1%;
  }
+
+ .alert{
+   
+   height: 20%;
+ }
+.alert-danger{
+   margin-top: 2%;
+   color: red;
+   margin-bottom: -3%;
+}
+
+.body{
+   overflow: hidden;
+}

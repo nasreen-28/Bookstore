@@ -1,53 +1,278 @@
+<div class="body">
+
 <div class="row">
-    <div class="col-7">
-        <img class="bg" src="assets/reg1.png" width="90%" height="90%">
-    </div>
-    <div class="col-5 first">
-        <h3 class="reghead">Register</h3>
-        <form>
-            <div class="row label">
-                <div class="col-6"><label for="firstname" name="firstname">First Name</label></div>
-                <div class="col-6"><label for="lastname" name="lastname">Last Name</label></div>
-                
+  <div class="col-5">
+    <img class="bg" src="assets/reg1.png" width="35%" height="90%" />
+  </div>
+  <div class="col-7 first">
+    <h3 class="reghead">Register</h3>
+    <form #userform="ngForm" >
+      <div class="row label">
+        <div class="col-6">
+          <label for="firstname" name="firstname">First Name</label>
+        </div>
+        <div class="col-6">
+          <label for="lastname" name="lastname">Last Name</label>
+        </div>
+      </div>
+      <div class="row input">
+        <div class="col-6" style="margin-left: -10px">
+          <input
+            class="form-control border-warning"
+            type="text"
+            required
+            ngModel
+            name="firstname"
+            #firstname="ngModel"
+            placeholder="Enter your first name"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="firstname.touched && !firstname.valid"
+          >
+            Firstname is required
+          </div>
+        </div>
+        <div class="col-6">
+          <input
+            class="form-control border-warning"
+            ngModel
+            required
+            #lastname="ngModel"
+            type="text"
+            name="lastname"
+            placeholder="Enter your last name"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="lastname.touched && !lastname.valid"
+          >
+            Lastname is required
+          </div>
+        </div>
+      </div>
+
+      <div class="row label">
+        <div class="col-6">
+            <label class="reglab" for="email" name="email">Email</label>
+        </div>
+        <div class="col-6">
+            <label class="reglab" for="mobile" name="mobile">Phone number</label>
+        </div>
+      </div>
+      <div class="row input">
+        <div class="col-6" style="margin-left: -10px">
+            <input
+            class="form-control border-warning"
+            required
+            ngModel
+            type="text"
+            name="emailid"
+            #emailid="ngModel"
+            placeholder="Enter your email id"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="emailid.touched && !emailid.valid"
+          >
+            Email id is required
+          </div>
+        </div>
+        <div class="col-6">
+            <input
+            class="form-control border-warning"
+            type="text"
+            name="phone"
+            required
+            ngModel
+            #phone="ngModel"
+            placeholder="Enter Phone number"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="phone.touched && !phone.valid"
+          >
+            Phone number is required
+          </div>
+        </div>
+      </div>
+      
+
+
+      <div class="row label">
+        <div class="col-6">
+            <label class="reglab" for="password" name="password">Password</label>
+        </div>
+        <div class="col-6">
+            <label class="reglab" for="confirmpassword" name="confirmpassword"
+            >Confirm Password</label
+          >
+        </div>
+      </div>
+      <div class="row input">
+        <div class="col-6" style="margin-left: -10px">
+            <input
+            class="form-control border-warning"
+            type="password"
+            required
+            ngModel
+            #password="ngModel"
+            name="password"
+            placeholder="Enter password"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="password.touched && !password.valid"
+          >
+            Password is required
+          </div>
+        </div>
+        <div class="col-6">
+            <input
+            class="form-control border-warning"
+            type="text"
+            required
+            ngModel
+            #confirmpassword="ngModel"
+            name="confirmpassword"
+            placeholder="Retype password"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="confirmpassword.touched && !confirmpassword.valid"
+          >
+            Confirm password is required
+          </div>
+        </div>
+      </div>
+
+      <div class="row label">
+        <div class="col-4"> <label class="reglab" for="houseno" name="houseno">House No</label></div>
+        <div class="col-4"> <label class="reglab" for="streetname" name="streetname">Street Name</label></div>
+        <div class="col-4"> <label class="reglab" for="area" name="area">Area</label></div>
+        </div>
+
+        <div class="row input">
+            <div class="col-4" style="margin-left: -10px">
+              <input
+                class="form-control border-warning"
+                type="text"
+                required
+                ngModel
+                name="houseno"
+                #houseno="ngModel"
+                placeholder="Enter your House No"
+              />
+              <div
+                class="alert-danger"
+                *ngIf="houseno.touched && !houseno.valid"
+              >
+                House No is required
+              </div>
             </div>
-            <div class="row input">
-                <div class="col-5" style="margin-left: -10px;"> <input class="form-control border-warning regin" type="text" name="firstname" placeholder="Enter your first name">
+            <div class="col-4">
+              <input
+                class="form-control border-warning"
+                ngModel
+                required
+                #streetname="ngModel"
+                type="text"
+                name="streetname"
+                placeholder="Enter your street name"
+              />
+              <div
+                class="alert-danger"
+                *ngIf="streetname.touched && !streetname.valid"
+              >
+                Street name is required
+              </div></div>
+              <div class="col-4">
+                <input
+                  class="form-control border-warning"
+                  ngModel
+                  required
+                  #area="ngModel"
+                  type="text"
+                  name="area"
+                  placeholder="Enter your Area"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="area.touched && !area.valid"
+                >
+                  Area is required
                 </div>
-                <div class="col-5">
-           
-                <input class="form-control border-warning regin2" type="text" name="lastname" placeholder="Enter your last name">
-            </div></div>
-            <div class="row label">
-                <label class="reglab" for="email" name="email">Email</label>
             </div>
-            <div class="row input">
-                <input class="form-control border-warning regin" type="text" name="emailid" placeholder="Enter your email id">
+          </div>
+
+          <div class="row label">
+            <div class="col-4"> <label class="reglab" for="city" name="city">City</label></div>
+            <div class="col-4"> <label class="reglab" for="state" name="state">State</label></div>
+            <div class="col-4"> <label class="reglab" for="pincode" name="pincode">Pin Code</label></div>
             </div>
-            <div class="row label">
-                <label class="reglab" for="mobile" name="mobile">Phone number</label>
-            </div>
-            <div class="row input">
-                <input class="form-control border-warning regin" type="text" name="phone" placeholder="Enter your phone number">
-            </div>
-            <div class="row label">
-                <label class="reglab" for="password" name="password">Password</label>
-            </div>
-            <div class="row input">
-                <input class="form-control border-warning regin" type="text" name="password" placeholder="Enter password">
-            </div>
-            <div class="row label">
-                <label class="reglab" for="confirmpassword" name="confirmpassword">Confirm Password</label>
-            </div>
-            <div class="row input">
-                <input class="form-control border-warning regin" type="text" name="confirmpassword" placeholder="Retype password">
-            </div>
-            <div class="row regbtn">
-              <a class="btn btn-dark" href="Login.html" role="button">Submit</a>
-            </div>
-        </form>
     
-    </div>
+            <div class="row input">
+                <div class="col-4" style="margin-left: -10px">
+                  <input
+                    class="form-control border-warning"
+                    type="text"
+                    required
+                    ngModel
+                    name="city"
+                    #city="ngModel"
+                    placeholder="Enter your city"
+                  />
+                  <div
+                    class="alert-danger"
+                    *ngIf="city.touched && !city.valid"
+                  >
+                    City is required
+                  </div>
+                </div>
+                <div class="col-4">
+                  <input
+                    class="form-control border-warning"
+                    ngModel
+                    required
+                    #state="ngModel"
+                    type="text"
+                    name="state"
+                    placeholder="Enter your state"
+                  />
+                  <div
+                    class="alert-danger"
+                    *ngIf="state.touched && !state.valid"
+                  >
+                    State is required
+                  </div></div>
+                  <div class="col-4">
+                    <input
+                      class="form-control border-warning"
+                      ngModel
+                      required
+                      #pincode="ngModel"
+                      type="text"
+                      name="pincode"
+                      placeholder="Enter your Pincode"
+                    />
+                    <div
+                      class="alert-danger"
+                      *ngIf="pincode.touched && !pincode.valid"
+                    >
+                      Pincode is required
+                    </div>
+                </div>
+              </div>
+
+
+
+
+
+
+      <div class="row regbtn">
+       <button [disabled]="!userform.valid" type="submit" class="btn btn-dark" onsubmit="alert('User registered successfully')">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
-
-
-  
+</div>
