@@ -1,9 +1,81 @@
-<div class="row">
-    <div class="col-7">
-        <img class="bg" src="assets/reg1.png" width="90%" height="90%">
-    </div>
-    <div class="col-4">
-        
-    </div>
-</div>
+<div class="body">
+  <div class="row">
+    <div class="col-5">
+      <h3 class="header">Login</h3>
 
+      <form #userform="ngForm">
+        <div class="row label">
+          <div class="col-6">
+            <label for="email" name="email">Email</label>
+          </div>
+        </div>
+        <div class="row input">
+          <div class="col-6 infield" style="margin-left: -10px">
+            <input
+              class="form-control border-warning"
+              required
+              ngModel
+              type="text"
+              name="emailid"
+              #emailid="ngModel"
+              placeholder="Enter your email id"
+            />
+            <div class="alert-danger" *ngIf="emailid.touched && !emailid.valid">
+              Email id is required
+            </div>
+            <div
+              class="alert-danger"
+              *ngIf="emailid.untouched || emailid.valid"
+            >
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <div class="row label">
+          <div class="col-6">
+            <label for="password" name="password">Password</label>
+          </div>
+        </div>
+        <div class="row input">
+          <div class="col-6 infield" style="margin-left: -10px">
+            <input
+              class="form-control border-warning"
+              type="password"
+              required
+              ngModel
+              #password="ngModel"
+              name="password"
+              placeholder="Enter password"
+            />
+            <div
+              class="alert-danger"
+              *ngIf="password.touched && !password.valid"
+            >
+              Password is required
+            </div>
+            <div
+              class="alert-danger"
+              *ngIf="password.untouched || password.valid"
+            >
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <div class="row logbtn">
+          <button
+            [disabled]="!userform.valid"
+            type="submit"
+            class="btn btn-dark"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-7">
+      <img class="bg" src="assets/log1.png" width="50%" height="100%" />
+    </div>
+  </div>
+</div>

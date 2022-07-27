@@ -1,65 +1,39 @@
-.bg{
-    margin-top: 4%;
-    margin-left: 4%;
-    position: absolute;
+.bg {
+  margin-top: 4%;
+  margin-left: 4%;
+  position: absolute;
 }
 
-.reghead{
-    font-size: 40px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-left: 30%;
- 
- }
-
-.label{
-    margin-top: 1%;
-    padding-top: 1%;
-   
- }
- 
- .regin{
-    margin-left: 10px;
-    margin-top: -5px;
-    height: 100%;
-    width: 80%;
- }
- .regin2{
-    margin-left: 10px;
-    margin-top: -5px;
-    height: 100%;
-    width: 90%;
-    
- }
- .reglab{
-    margin-top: -10px;
- }
- 
- .regbtn{
-    justify-content: center;
-    width: 20%;
-    margin-left: 30%;
-    margin-top: 3%;
- }
-
- .input{
-    margin-top: 1%;
-    margin-right: 1%;
- }
-
- .first{
-    margin-top: 1%;
- }
-
- .alert{
-   
-   height: 20%;
- }
-.alert-danger{
-   margin-top: 2%;
-   color: red;
-   margin-bottom: -3%;
+.header {
+  font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 30%;
+  margin-top: 2%;
 }
 
-.body{
-   overflow: hidden;
+.label {
+  margin-top: 1%;
+  padding-top: 1%;
+}
+
+.input {
+  margin-top: 1%;
+  margin-right: 1%;
+}
+
+.regbtn {
+  justify-content: center;
+  width: 20%;
+  margin-left: 30%;
+  margin-top: 3%;
+}
+
+.alert-danger {
+  margin-top: 2%;
+  color: red;
+  margin-bottom: -3%;
+}
+
+.body {
+  overflow: hidden;
 }
