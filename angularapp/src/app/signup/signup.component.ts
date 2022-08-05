@@ -1,4 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Signup } from '../signup';
+import { SignupService } from '../signup.service';
+
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  user: Signup = new Signup();
+
+  constructor(private signupService : SignupService
+    ) { }
 
   ngOnInit(): void {
   }
+  onSubmit(){
+    //console.log(this.user);
+    this.saveUser();
+  }
 
+  saveUser(){
+    this.signupService.createUser(this.user).subscribe( data=>{
+      console.log(data);
+    },
+    error=>console.error(error));
+  
+  }
 }

@@ -1,3 +1,5 @@
+<!--SIGNUP 1
+
 <div class="body">
   <div class="row">
     <div class="col-5">
@@ -5,7 +7,7 @@
     </div>
     <div class="col-7">
       <h3 class="header">Register</h3>
-      <form #userform="ngForm">
+      <form #userform="ngForm" (ngSubmit)="onSubmit(userform.value)" >
         <div class="row label">
           <div class="col-6">
             <label for="firstname" name="firstname">First Name</label>
@@ -21,7 +23,7 @@
               type="text"
               required
               ngModel
-              name="firstname"
+              name="firstName"
               #firstname="ngModel"
               placeholder="Enter your first name"
             />
@@ -45,7 +47,7 @@
               required
               #lastname="ngModel"
               type="text"
-              name="lastname"
+              name="lastName"
               placeholder="Enter your last name"
             />
             <div
@@ -72,7 +74,7 @@
               required
               ngModel
               type="text"
-              name="emailid"
+              name="emailID"
               #emailid="ngModel"
               placeholder="Enter your email id"
             />
@@ -90,7 +92,7 @@
             <input
               class="form-control border-warning"
               type="text"
-              name="phone"
+              name="mobileNumber"
               required
               ngModel
               #phone="ngModel"
@@ -155,7 +157,7 @@
           </div>
         </div>
 
-        <div class="row label">
+ <!--       <div class="row label">
           <div class="col-4">
             <label for="houseno" name="houseno">House No</label>
           </div>
@@ -274,7 +276,7 @@
             </div>
           </div>
         </div>
-
+      
         <div class="row regbtn">
           <button
             [disabled]="!userform.valid"
@@ -286,6 +288,117 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+-->
+
+<div class="content">
+  <img class="image-fluid bookbg" src="assets/bookbg.jpg" alt="book" width="100%" height="100%" />
+  <div class="col d-flex justify-content-center">
+    <div class="card bg-white">
+      <div class="card-header bg-dark white chead">REGISTER</div>
+      <div class="card-body">
+        <form class="f" #userform="ngForm" (ngSubmit)="onSubmit()">
+          <div class="row label1">
+            <label name="name">Name</label>
+          </div>
+
+          <div class="row input">
+            <input [(ngModel)]="user.name" class="form-control border-dark" type="text" required ngModel name="name" #name="ngModel"
+              placeholder="Enter your name" />
+            <div class="alert-danger" *ngIf="name.touched && !name.valid">
+              Name is required
+            </div>
+            <div class="alert-danger" *ngIf="name.untouched || name.valid">
+              <br />
+            </div>
+          </div>
+
+          <div class="row label">
+            <label name="email">Email</label>
+          </div>
+          <div class="row input">
+            <input [(ngModel)]="user.emailId" class="form-control border-dark" required ngModel type="text" name="emailID" #emailid="ngModel"
+              placeholder="Enter your email id" />
+            <div class="alert-danger" *ngIf="emailid.touched && !emailid.valid">
+              Email id is required
+            </div>
+            <div class="alert-danger" *ngIf="emailid.untouched || emailid.valid">
+              <br />
+            </div>
+          </div>
+          <div class="row label">
+            <label name="phonenumber">Phone Number</label>
+          </div>
+          <div class="row input">
+            <input [(ngModel)]="user.mobileNumber" class="form-control border-dark" type="text" name="mobileNumber" required ngModel #phone="ngModel"
+              placeholder="Enter Phone number" />
+            <div class="alert-danger" *ngIf="phone.touched && !phone.valid">
+              Phone number is required
+            </div>
+            <div class="alert-danger" *ngIf="phone.untouched || phone.valid">
+              <br />
+            </div>
+          </div>
+
+          <div class="row label">
+            <label name="password">Password</label>
+          </div>
+          <div class="row input">
+            <input [(ngModel)]="user.password" class="form-control border-dark" type="password" required ngModel #password="ngModel" name="password"
+              placeholder="Enter password" />
+            <div class="alert-danger" *ngIf="password.touched && !password.valid">
+              Password is required
+            </div>
+            <div class="alert-danger" *ngIf="password.untouched || password.valid">
+              <br />
+            </div>
+          </div>
+          <div class="row label">
+            <label name="confirmpassword">Confirm Password</label>
+          </div>
+
+          <div class="row input">
+            <input class="form-control border-dark" type="password" required ngModel #confirmpassword="ngModel"
+           
+              name="confirmpassword" placeholder="Retype password" />
+            <div class="alert-danger" *ngIf="confirmpassword.touched && !confirmpassword.valid">
+              Confirm password is required
+            </div>
+            <div class="alert-danger" *ngIf="confirmpassword.untouched || confirmpassword.valid">
+              <br />
+            </div>
+          </div>
+
+          <div class="row label">
+            <label name="role">Role</label>
+          </div>
+
+          <div class="row input">
+            <input [(ngModel)]="user.role" class="form-control border-dark" type="text" required ngModel #role="ngModel" name="role"
+              placeholder="Enter your Role" />
+            <div class="alert-danger" *ngIf="role.touched && !role.valid">
+              Role is required
+            </div>
+            <div class="alert-danger" *ngIf="role.untouched || role.valid">
+              <br />
+            </div>
+          </div>
+
+
+          <div class="row">
+            <button [disabled]="!userform.valid" type="submit" class="btn btn-dark regbtn"
+              onsubmit="alert('User registered successfully')">
+              Submit
+            </button>
+          </div>
+          <p class="al">
+            Already have an account?<a class="ll" routerLink="/login">
+              Login!</a>
+          </p>
+        </form>
+      </div>
     </div>
   </div>
 </div>

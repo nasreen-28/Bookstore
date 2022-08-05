@@ -1,3 +1,5 @@
+/*SIGNUP 1
+
 .bg {
   margin-top: 4%;
   margin-left: 4%;
@@ -36,4 +38,81 @@
 
 .body {
   overflow: hidden;
+}
+*/
+
+             
+
+.white{
+  color: #fff;
+}
+
+
+.bookbg{
+  position: fixed;
+}
+
+.al{
+  font-weight: 600;
+  margin-top: 2%;
+  margin-left: 20%;
+}
+.ll{
+  text-decoration: none;
+}
+.card {
+  width: 65%;
+margin-top: 1%;
+height: 50rem;
+margin-bottom: 2%;
+
+}
+
+
+
+.chead{
+  height: 9%;
+  font-size: 35px;
+ text-align: center;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ 
+}
+
+.label1 {
+  margin-left: -20px;
+  font-weight: 600;
+  
+}
+
+
+.label {
+  margin-left: -20px;
+  font-weight: 600;
+  margin-top: 3%;
+}
+
+.input {
+  margin-top: 3px;
+  margin-right: 1%;
+  width: 75%;
+  height: 50%;
+}
+
+.regbtn {
+  justify-content: center;
+  width: 20%;
+  margin-top: 5%;
+  text-align: center;
+  margin-left: 27%;
+}
+
+.alert-danger {
+  
+  color: red;
+  margin-bottom: -3%;
+  margin-left: -10px;
+}
+
+.f{
+  margin-left: 20%;
 }
