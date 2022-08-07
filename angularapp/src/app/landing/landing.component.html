@@ -4,10 +4,10 @@
     <div class="navbar-collapse offcanvas-collapse">
       <ul class="navbar-nav ms-auto navbar-nav-scroll">
         <li class="nav-item">
-          <a class="nav-link white" routerLink="/login">Login</a>
+          <a class="nav-link white" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link white" routerLink="/signup">Signup</a>
+          <a class="nav-link white" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Signup</a>
         </li>
       </ul>
     </div>
@@ -33,7 +33,7 @@
               but by its <b><i> content </i></b>!
             </h3>
             <br />
-            <a href="#" class="btn btn-dark butcta">Explore</a>
+            <a [routerLink]="['/user/home']" routerLinkActive="router-link-active"  class="btn btn-dark butcta">Explore</a>
           </div>
         </div>
       </div>

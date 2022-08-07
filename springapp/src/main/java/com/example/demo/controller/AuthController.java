@@ -11,7 +11,7 @@ import com.example.demo.service.Userservice;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class UserController {
+public class AuthController {
     @Autowired
     private Userservice userservice;
 

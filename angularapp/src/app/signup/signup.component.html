@@ -294,7 +294,13 @@
 -->
 
 <div class="content">
-  <img class="image-fluid bookbg" src="assets/bookbg.jpg" alt="book" width="100%" height="100%" />
+  <img
+    class="image-fluid bookbg"
+    src="assets/bookbg.jpg"
+    alt="book"
+    width="100%"
+    height="100%"
+  />
   <div class="col d-flex justify-content-center">
     <div class="card bg-white">
       <div class="card-header bg-dark white chead">REGISTER</div>
@@ -305,10 +311,19 @@
           </div>
 
           <div class="row input">
-            <input [(ngModel)]="user.name" class="form-control border-dark" type="text" required ngModel name="name" #name="ngModel"
-              placeholder="Enter your name" />
+            <input
+              [(ngModel)]="user.name"
+              class="form-control border-dark"
+              type="text"
+              required
+              minlength="4"
+              name="name"
+              #name="ngModel"
+              placeholder="Enter your name"
+            />
             <div class="alert-danger" *ngIf="name.touched && !name.valid">
-              Name is required
+              <div *ngIf="name.errors?.['required']">Name is required.</div>
+              <div *ngIf="name.errors?.['minlength']">Name must be at least 4 characters.</div>
             </div>
             <div class="alert-danger" *ngIf="name.untouched || name.valid">
               <br />
@@ -319,12 +334,23 @@
             <label name="email">Email</label>
           </div>
           <div class="row input">
-            <input [(ngModel)]="user.emailId" class="form-control border-dark" required ngModel type="text" name="emailID" #emailid="ngModel"
-              placeholder="Enter your email id" />
+            <input
+              [(ngModel)]="user.emailId"
+              class="form-control border-dark"
+              required
+              type="text"
+              name="emailid"
+              #emailid="ngModel"
+              placeholder="Enter your email id"
+            />
             <div class="alert-danger" *ngIf="emailid.touched && !emailid.valid">
-              Email id is required
+              <div *ngIf="emailid.errors?.['required']">Email id is required.</div>
+              
             </div>
-            <div class="alert-danger" *ngIf="emailid.untouched || emailid.valid">
+            <div
+              class="alert-danger"
+              *ngIf="emailid.untouched || emailid.valid"
+            >
               <br />
             </div>
           </div>
@@ -332,10 +358,21 @@
             <label name="phonenumber">Phone Number</label>
           </div>
           <div class="row input">
-            <input [(ngModel)]="user.mobileNumber" class="form-control border-dark" type="text" name="mobileNumber" required ngModel #phone="ngModel"
-              placeholder="Enter Phone number" />
+            <input
+              [(ngModel)]="user.mobileNumber"
+              class="form-control border-dark"
+              type="tel"
+              name="mobileNumber"
+              required
+              minlength="10"
+              maxlength="10"
+              #phone="ngModel"
+              placeholder="Enter Phone number"
+            />
             <div class="alert-danger" *ngIf="phone.touched && !phone.valid">
-              Phone number is required
+
+              <div *ngIf="phone.errors?.['required']">Phone number is required</div>
+              <div *ngIf="phone.errors?.['minlength']">Phone number must be at least 10 digits.</div>
             </div>
             <div class="alert-danger" *ngIf="phone.untouched || phone.valid">
               <br />
@@ -346,12 +383,26 @@
             <label name="password">Password</label>
           </div>
           <div class="row input">
-            <input [(ngModel)]="user.password" class="form-control border-dark" type="password" required ngModel #password="ngModel" name="password"
-              placeholder="Enter password" />
-            <div class="alert-danger" *ngIf="password.touched && !password.valid">
+            <input
+              [(ngModel)]="user.password"
+              class="form-control border-dark"
+              type="password"
+              required
+              ngModel
+              #password="ngModel"
+              name="password"
+              placeholder="Enter password"
+            />
+            <div
+              class="alert-danger"
+              *ngIf="password.touched && !password.valid"
+            >
               Password is required
             </div>
-            <div class="alert-danger" *ngIf="password.untouched || password.valid">
+            <div
+              class="alert-danger"
+              *ngIf="password.untouched || password.valid"
+            >
               <br />
             </div>
           </div>
@@ -360,13 +411,27 @@
           </div>
 
           <div class="row input">
-            <input class="form-control border-dark" type="password" required ngModel #confirmpassword="ngModel"
-           
-              name="confirmpassword" placeholder="Retype password" />
-            <div class="alert-danger" *ngIf="confirmpassword.touched && !confirmpassword.valid">
-              Confirm password is required
+            <input
+              class="form-control border-dark"
+              type="password"
+              required
+              ngModel
+              #confirmpassword="ngModel"
+              name="confirmpassword"
+              placeholder="Retype password"
+            />
+            <div
+              class="alert-danger"
+              *ngIf="confirmpassword.touched && !confirmpassword.valid"
+            >
+            <div *ngIf="phone.errors?.['required']"> Confirm password is required</div>
+            <div *ngIf="password != confirmpassword">Confirm password and password do not match.</div>
+             
             </div>
-            <div class="alert-danger" *ngIf="confirmpassword.untouched || confirmpassword.valid">
+            <div
+              class="alert-danger"
+              *ngIf="confirmpassword.untouched || confirmpassword.valid"
+            >
               <br />
             </div>
           </div>
@@ -376,8 +441,16 @@
           </div>
 
           <div class="row input">
-            <input [(ngModel)]="user.role" class="form-control border-dark" type="text" required ngModel #role="ngModel" name="role"
-              placeholder="Enter your Role" />
+            <input
+              [(ngModel)]="user.role"
+              class="form-control border-dark"
+              type="text"
+              required
+              ngModel
+              #role="ngModel"
+              name="role"
+              placeholder="Enter your Role"
+            />
             <div class="alert-danger" *ngIf="role.touched && !role.valid">
               Role is required
             </div>
@@ -386,16 +459,20 @@
             </div>
           </div>
 
-
           <div class="row">
-            <button [disabled]="!userform.valid" type="submit" class="btn btn-dark regbtn"
-              onsubmit="alert('User registered successfully')">
+            <button
+              [disabled]="!userform.valid"
+              type="submit"
+              class="btn btn-dark regbtn"
+              onsubmit="alert('User registered successfully')"
+            >
               Submit
             </button>
           </div>
           <p class="al">
-            Already have an account?<a class="ll" routerLink="/login">
-              Login!</a>
+            Already have an account?<a class="ll" [routerLink]="['/login']" routerLinkActive="router-link-active" >
+              Login!</a
+            >
           </p>
         </form>
       </div>

@@ -8,6 +8,12 @@ import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminAddBookComponent } from './admin-add-book/admin-add-book.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminViewBookComponent } from './admin-view-book/admin-view-book.component';
+import { AdminEditBookComponent } from './admin-edit-book/admin-edit-book.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { UserViewBookComponent } from './user-view-book/user-view-book.component';
 
 
 @NgModule({
@@ -16,6 +22,12 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     LandingComponent,
     LoginComponent,
+    AdminAddBookComponent,
+    AdminHomeComponent,
+    AdminViewBookComponent,
+    AdminEditBookComponent,
+    UserHomeComponent,
+    UserViewBookComponent,
     
   ],
   imports: [
