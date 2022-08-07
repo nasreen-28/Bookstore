@@ -20,13 +20,15 @@ export class SignupComponent implements OnInit {
   onSubmit(){
     //console.log(this.user);
     this.saveUser();
+    alert("Registration successful");
   }
 
   saveUser(){
-    this.signupService.createUser(this.user).subscribe( data=>{
-      console.log(data);
-    },
-    error=>console.error(error));
-  
+    this.signupService.createUser(this.user).subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      (error: any) => console.error(error)
+    );
   }
 }

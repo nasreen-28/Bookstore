@@ -1,1 +1,51 @@
-<p>admin-home works!</p>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand logo-text booklogo" href="/">Booksta</a>
+      <div class="navbar-collapse offcanvas-collapse">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
+          <li class="nav-item">
+            <a class="nav-link white" >My profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link white" [routerLink]="['/']" routerLinkActive="router-link-active"  >Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="content">
+    <img class="image-fluid bookbg" src="assets/bookbg.jpg" alt="book" width="100%" height="100%" />
+    <div class="col d-flex justify-content-center">
+        <div class="card bg-white" style="height: 35rem">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <img class="image-fluid bookimg" src="assets/reading-glasses-animate.svg" width="100%" height="100%" />
+              </div>
+              <div class="col-6 cont">
+                <h3>Welcome <b><i>Nasreen </i></b>!</h3>
+                <br />
+                <h5>
+                 To add books, click below
+                </h5>
+                <br />
+                <a [routerLink]="['/admin/addBook']" routerLinkActive="router-link-active"  class="btn btn-dark butcta">Add Book</a>
+
+                <h5>
+                 To view, update or delete books click below
+                </h5>
+                <br />
+                <a [routerLink]="['/admin/viewBook']" routerLinkActive="router-link-active"  class="btn btn-dark butcta">View Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer bg-dark">
+        <div class="footer-copyright text-center py-3 foottext">
+          © 2022 Copyright:
+          <a href="/">www.boosta.com</a>
+        </div>
+      </div>
