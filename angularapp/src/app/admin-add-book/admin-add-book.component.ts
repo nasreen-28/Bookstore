@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 
@@ -7,17 +7,16 @@ import { BookService } from '../book.service';
   templateUrl: './admin-add-book.component.html',
   styleUrls: ['./admin-add-book.component.css'],
 })
-export class AdminAddBookComponent implements OnInit {
-  
+export class AdminAddBookComponent {
   book: Book = new Book();
-  constructor(private bookService: BookService) {}
 
-  ngOnInit(): void {}
+  constructor(private bookService: BookService) { }
+
   onSubmit() {
-    //console.log(this.book);
     this.addBook();
-    alert("Book added successfully");
+    alert('Book added successfully');
   }
+
   addBook() {
     this.bookService.addBook(this.book).subscribe(
       (data: any) => {
@@ -26,6 +25,4 @@ export class AdminAddBookComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
-
-  
 }

@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService{
         oldBook.setBookImageUrl(book.getBookImageUrl());
         oldBook.setISBNNumber(book.getISBNNumber());
         oldBook.setBookGenre(book.getBookGenre());
-        oldBook.setBookGenre(book.getBookGenre());
+        oldBook.setBookPrice(book.getBookPrice());
         return bookRepository.save(oldBook);
     }
 
@@ -39,6 +39,12 @@ public class BookServiceImpl implements BookService{
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
         
+    }
+
+    @Override
+    public Book getBookById(Long bookId) {
+        Book book=bookRepository.findById(bookId).get();
+        return book;
     }
     
 }

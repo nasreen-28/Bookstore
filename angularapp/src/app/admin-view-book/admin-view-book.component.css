@@ -1,39 +1,41 @@
-.hcard{
-   margin-top: 5%;
-   margin-right: 5%;
-   
-}
-.vcard{
-    margin-left: 10%;
-    margin-top: 10%;
-   
-}
-.content{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
+.hcard {
+  margin-top: 5%;
+  margin-right: 5%;
 }
 
-.cbody{
-    height: 130px;
+.vcard {
+  margin-left: 10%;
+  margin-top: 10%;
 }
 
-.cfoot{
-    background-color: white;
-    border: none;
-    text-align: end;
+.content {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
 }
 
-.edit{
-    color: black;
-font-size: 25px;
-margin-right: 20px;
-    
+.cbody {
+  height: 130px;
 }
 
-.delete{
-    color: black;
-font-size: 25px;
-margin-right: 5px;
-    
+.cfoot {
+  background-color: white;
+  border: none;
+  text-align: end;
+}
+
+.edit {
+  color: black;
+  font-size: 25px;
+  margin-right: 20px;
+}
+
+.delete {
+  color: black;
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.bookbg {
+  position: fixed;
 }

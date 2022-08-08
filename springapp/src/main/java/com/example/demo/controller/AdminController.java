@@ -34,6 +34,12 @@ public class AdminController {
         return bookService.updateBook(book,bookId);
     }
 
+    @GetMapping("/getBookById/{bookId}")
+    public Book getBookById(@PathVariable Long bookId){
+        System.out.println(bookService.getBookById(bookId));
+        return bookService.getBookById(bookId);
+    }
+
     @GetMapping("/viewBooks")
     public List<Book> viewBooks(){
         return bookService.viewBooks();

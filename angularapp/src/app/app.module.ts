@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +15,7 @@ import { AdminEditBookComponent } from './admin-edit-book/admin-edit-book.compon
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserViewBookComponent } from './user-view-book/user-view-book.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
-import { AdminViewBookDetailComponent } from './admin-view-book-detail/admin-view-book-detail.component';
-
+import { UserNavComponent } from './user-nav/user-nav.component';
 
 @NgModule({
   declarations: [
@@ -31,17 +30,16 @@ import { AdminViewBookDetailComponent } from './admin-view-book-detail/admin-vie
     UserHomeComponent,
     UserViewBookComponent,
     AdminNavComponent,
-    AdminViewBookDetailComponent,
-    
+    UserNavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

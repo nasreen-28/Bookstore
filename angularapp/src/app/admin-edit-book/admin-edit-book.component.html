@@ -1,1 +1,82 @@
 <app-admin-nav></app-admin-nav>
+
+<div class="content">
+  <form (ngSubmit)="onSubmit()" #editbook="ngForm">
+    <div class="row">
+      <label>Book Title</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="book.bookTitle"
+        name="booktitle"
+        #booktitle="ngModel"
+      />
+    </div>
+    <div class="row">
+      <label>Book Description</label>
+    </div>
+    <div class="row">
+      <textarea
+        class="form-control border-dark textarea"
+        [(ngModel)]="book.bookDesc"
+        rows="5"
+        name="bookdescription"
+        #bookdescription="ngModel"
+      ></textarea>
+    </div>
+
+    <div class="row">
+      <label>Book Image URL</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="book.bookImageUrl"
+        name="imageurl"
+        #imageurl="ngModel"
+      />
+    </div>
+    <div class="row">
+      <label>ISBN Number</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="book.isbnnumber"
+        name="isbnnum"
+        #isbnnum="ngModel"
+      />
+    </div>
+    <div class="row">
+      <label>Genre</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="book.bookGenre"
+        name="genre"
+        #genre="ngModel"
+      />
+    </div>
+    <div class="row">
+      <label>Price</label>
+    </div>
+    <div class="row">
+      <input
+        class="form-control border-dark"
+        type="text"
+        [(ngModel)]="book.bookPrice"
+        name="price"
+        #price="ngModel"
+      />
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-dark subbtn">Submit</button>
+    </div>
+  </form>
+</div>

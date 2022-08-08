@@ -1,0 +1,23 @@
+.hcard {
+  margin-top: 5%;
+  margin-right: 5%;
+}
+.vcard {
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.content {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+}
+
+.cbody {
+  height: 130px;
+}
+
+.cfoot {
+  background-color: white;
+  border: none;
+  text-align: center;
+}
