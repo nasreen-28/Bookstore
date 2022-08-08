@@ -14,6 +14,7 @@ import { AdminViewBookComponent } from './admin-view-book/admin-view-book.compon
 import { AdminEditBookComponent } from './admin-edit-book/admin-edit-book.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserViewBookComponent } from './user-view-book/user-view-book.component';
+import { AdminNavComponent } from './admin-nav/admin-nav.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UserViewBookComponent } from './user-view-book/user-view-book.component
     AdminEditBookComponent,
     UserHomeComponent,
     UserViewBookComponent,
+    AdminNavComponent,
     
   ],
   imports: [

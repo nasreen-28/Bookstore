@@ -6,5 +6,5 @@ import com.example.demo.model.User;
 
 @Service
 public interface Userservice {
-    public String registerUser(User user);
+    public User registerUser(User user);
 }

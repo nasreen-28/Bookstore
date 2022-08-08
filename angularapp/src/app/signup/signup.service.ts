@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Signup } from './signup';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SignupService {
   private apiServerUrl = environment.apiBaseUrl;
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
- createUser(user:Signup):Observable<Object>{
-  return this.http.post(`${this.apiServerUrl}/signup`,user);
- }
+  createUser(user: Signup): Observable<Object> {
+    return this.http.post(`${this.apiServerUrl}/signup`, user);
+  }
 }

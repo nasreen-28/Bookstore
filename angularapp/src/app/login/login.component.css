@@ -47,53 +47,46 @@
 
 */
 
-.white{
+.white {
   color: #fff;
 }
 
 .bg {
   margin-left: 4%;
   margin-top: 5%;
- 
 }
-.bookbg{
+.bookbg {
   position: fixed;
 }
 
-.al{
+.al {
   font-weight: 600;
   margin-top: 9%;
   margin-left: 3%;
-  
 }
-.ll{
+.ll {
   text-decoration: none;
 }
 .card {
   width: 65%;
-margin-top: 2%;
-height: 40rem;
-/*margin-bottom: 5%;
+  margin-top: 2%;
+  height: 40rem;
+  /*margin-bottom: 5%;
 */
 }
 
-
-
-.chead{
+.chead {
   height: 10%;
   font-size: 35px;
- text-align: center;
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- 
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .label1 {
   margin-left: -20px;
   font-weight: 600;
   margin-top: 20%;
-  
 }
-
 
 .label2 {
   margin-left: -20px;
@@ -117,12 +110,11 @@ height: 40rem;
 }
 
 .alert-danger {
-  
   color: red;
   margin-bottom: -3%;
   margin-left: -10px;
 }
 
-.f{
+.f {
   margin-left: 20%;
 }

@@ -1,64 +1,58 @@
-.booklogo{
-    font-family: 'Billabong', sans-serif;
-    font-size: 40px;
-    margin-bottom: -20px;
-    margin-left: 5%;
-  
-}                 
-
-.white{
-    color: #fff;
+.booklogo {
+  font-family: "Billabong", sans-serif;
+  font-size: 40px;
+  margin-bottom: -20px;
+  margin-left: 5%;
 }
 
-.black{
-    color: #000;
-}
-.bookbg{
-    position: fixed;
+.white {
+  color: #fff;
 }
 
-
-
-  .card {
-    width: 70%;
-  opacity: .9;
-    border-radius: -2px;
- margin-top: 5%;
- 
-  
+.black {
+  color: #000;
+}
+.bookbg {
+  position: fixed;
 }
 
-h3{
-    margin-top: 5%;
-    text-align: center;
-    color: rgb(2, 1, 7);
-    font-size: 35px;
+.card {
+  width: 70%;
+  opacity: 0.9;
+  border-radius: -2px;
+  margin-top: 5%;
 }
 
-.butcta{
-margin-left: 40%;
-margin-top: 5%;
+h3 {
+  margin-top: 5%;
+  text-align: center;
+  color: rgb(2, 1, 7);
+  font-size: 35px;
 }
 
-.cont{
-    margin-top: 8%;
+.butcta {
+  margin-left: 40%;
+  margin-top: 5%;
+}
+
+.cont {
+  margin-top: 8%;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 7%;
-    color: white;
-    text-align: center;
-    
- }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  color: white;
+  text-align: center;
+}
 
- .foottext{
-    margin-top: -5px;
- }
+.foottext {
+  margin-top: -5px;
+}
 
- .bookimg{
-    margin-top: 15%;
- }
+.bookimg {
+  margin-top: 15%;
+}
