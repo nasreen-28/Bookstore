@@ -8,6 +8,7 @@ import { BookService } from '../book.service';
   styleUrls: ['./admin-add-book.component.css'],
 })
 export class AdminAddBookComponent implements OnInit {
+  
   book: Book = new Book();
   constructor(private bookService: BookService) {}
 
@@ -25,4 +26,6 @@ export class AdminAddBookComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
+
+  
 }

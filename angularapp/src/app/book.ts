@@ -1,4 +1,5 @@
 export class Book {
+    bookId:number;
     bookTitle:string;
     bookDesc:string;
     bookImageUrl:string;

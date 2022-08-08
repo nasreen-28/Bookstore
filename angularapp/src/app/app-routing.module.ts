@@ -9,6 +9,7 @@ import { AdminViewBookComponent } from './admin-view-book/admin-view-book.compon
 import { AdminEditBookComponent } from './admin-edit-book/admin-edit-book.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserViewBookComponent } from './user-view-book/user-view-book.component';
+import { AdminViewBookDetailComponent } from './admin-view-book-detail/admin-view-book-detail.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
    {path:'admin/home',component:AdminHomeComponent},
    {path:'admin/addBook',component:AdminAddBookComponent},
    {path:'admin/viewBook',component:AdminViewBookComponent},
+   {path:'admin/viewBookDetails/:id',component:AdminViewBookDetailComponent},
    {path:'admin/editBook',component:AdminEditBookComponent},
    {path:'user/home',component:UserHomeComponent},
    {path:'user/viewBook',component:UserViewBookComponent}

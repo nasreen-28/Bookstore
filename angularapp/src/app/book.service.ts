@@ -8,6 +8,7 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class BookService {
+  
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http:HttpClient) { }
@@ -15,4 +16,8 @@ export class BookService {
   addBook(book:Book):Observable<Object>{
     return this.http.post(`${this.apiServerUrl}/admin/addBook`,book);
    }
+
+   getBooks() : Observable<Book[]>{
+    return this.http.get<Book[]>(`${this.apiServerUrl}/admin/viewBooks`);
+  }
 }

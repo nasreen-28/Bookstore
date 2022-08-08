@@ -1,1 +1,27 @@
 <app-admin-nav></app-admin-nav>
+<div class="content">
+<div class="row hcard">
+    <div *ngFor="let book of books" class="col-md-6 col-xl-4">
+       <div class="card vcard " style="width: 20rem; ">
+        <img class="card-img-top" src="{{book?.bookImageUrl}}" alt="Card image cap" style="height: 18rem; ;" >
+          <div class="card-body cbody">
+                
+            
+            <h5 class="card-title">{{book?.bookTitle}}</h5>
+    <p class="card-text">Rs. {{book.bookPrice}}</p>
+    
+          </div>
+    
+            <div class="card-footer cfoot">
+                <a  [routerLink]="['/admin/viewBookDetails/',book.bookId]" routerLinkActive="router-link-active" role="button"><i class="bi bi-pencil-square edit"></i></a>
+                <a  role="button"><i class="bi bi-trash-fill delete"></i></a>
+                
+
+              
+            </div>
+          </div>
+       
+       </div>
+    </div>
+  </div>
+
