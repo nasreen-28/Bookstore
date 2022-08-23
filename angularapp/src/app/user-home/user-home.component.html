@@ -9,9 +9,11 @@
           <p class="card-text">Rs. {{ book.bookPrice }}</p>
         </div>
         <div class="card-footer cfoot">
-          <a class="btn btn-dark" role="button">View</a>
+          <a class="btn btn-dark" [routerLink]="['/user/viewBook',book.bookId]" routerLinkActive="router-link-active"  role="button">View</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

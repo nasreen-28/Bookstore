@@ -16,6 +16,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { UserViewBookComponent } from './user-view-book/user-view-book.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserNavComponent } from './user-nav/user-nav.component';
     UserViewBookComponent,
     AdminNavComponent,
     UserNavComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

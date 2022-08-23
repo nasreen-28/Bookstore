@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Book;
 import com.example.demo.service.BookService;
 
-
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/admin")
@@ -25,29 +24,29 @@ public class AdminController {
     private BookService bookService;
 
     @PostMapping("/addBook")
-    public Book addBook(@RequestBody Book book){
+    public Book addBook(@RequestBody Book book) {
         return bookService.addBook(book);
     }
 
     @PutMapping("/editBook/{bookId}")
-    public Book editBook(@RequestBody Book book, @PathVariable Long bookId){
-        return bookService.updateBook(book,bookId);
+    public Book editBook(@RequestBody Book book, @PathVariable Long bookId) {
+        return bookService.updateBook(book, bookId);
     }
 
     @GetMapping("/getBookById/{bookId}")
-    public Book getBookById(@PathVariable Long bookId){
+    public Book getBookById(@PathVariable Long bookId) {
         System.out.println(bookService.getBookById(bookId));
         return bookService.getBookById(bookId);
     }
 
     @GetMapping("/viewBooks")
-    public List<Book> viewBooks(){
+    public List<Book> viewBooks() {
         return bookService.viewBooks();
     }
 
     @DeleteMapping("/deleteBook/{bookId}")
-    public void deleteBook(@PathVariable Long bookId){
+    public void deleteBook(@PathVariable Long bookId) {
         bookService.deleteBook(bookId);
     }
-    
+
 }

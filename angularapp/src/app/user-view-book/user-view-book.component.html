@@ -1,1 +1,25 @@
-<p>user-view-book works!</p>
+<app-user-nav></app-user-nav>
+<div class="content">
+    <div class="row">
+        <div class="col-xl-6">
+            <img src="{{book.bookImageUrl}}" alt="book" width="500px" height="550px">
+        </div>
+        <div class="col-xl-6">
+            <h3>{{book.bookTitle}}</h3><br>
+            <p class="fw">Book description:</p>
+            <p>{{book.bookDesc}}</p>
+            <p class="fw">ISBN Number:</p>
+            <p>{{book.isbnnumber}}</p>
+            <p class="fw">Book Price:</p>
+            <p>{{book.bookPrice}}</p>
+            <div class="btns">
+                <a class="btn btn-dark atc" href="#" role="button">Add to cart    <i class="bi bi-cart4"></i></a>
+                <a class="btn btn-dark bn" href="#" role="button">Buy now    <i class="bi bi-bag-heart-fill"></i></a>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -96,7 +96,7 @@
           </div>
           <div class="col-6">
             
-            <form class="f" #userform="ngForm">
+            <form class="f" #userform="ngForm" (ngSubmit)="onSubmit()">
               <div class="row label1">
                 <label name="email">Email</label>
               </div>
