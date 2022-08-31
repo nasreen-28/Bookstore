@@ -1,0 +1,126 @@
+<app-user-nav></app-user-nav>
+
+<div class="content">
+  <h5>My Profile</h5>
+  <form (ngSubmit)="onSubmit()" #addcustomer="ngForm">
+    <div class="row">
+      <div class="col-6">
+        <label> First Name </label>
+        <br />
+        <input
+          class="form-control border-dark"
+          type="text"
+          [(ngModel)]="customer.firstName"
+          name="firstName"
+          #firstName="ngModel"
+        />
+      </div>
+      <div class="col-6">
+        <label> Last Name </label>
+        <br />
+        <input
+          class="form-control border-dark"
+          type="text"
+          [(ngModel)]="customer.lastName"
+          name="lastName"
+          #lastName="ngModel"
+        />
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+          <label> Email id </label>
+          <br />
+          <input
+            class="form-control border-dark"
+            type="text"
+            [(ngModel)]="customer.emailId"
+            name="emailId"
+            #emailId="ngModel"
+          />
+        </div>
+        <div class="col-6">
+          <label> Mobile Number </label>
+          <br />
+          <input
+            class="form-control border-dark"
+            type="text"
+            [(ngModel)]="customer.mobileNumber"
+            name="mobileNumber"
+            #mobileNumber="ngModel"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label> House No </label>
+          <br />
+          <input
+            class="form-control border-dark"
+            type="text"
+            [(ngModel)]="customer.houseNo"
+            name="houseNo"
+            #houseNo="ngModel"
+          />
+        </div>
+        <div class="col-4">
+          <label> Street Name </label>
+          <br />
+          <input
+            class="form-control border-dark"
+            type="text"
+            [(ngModel)]="customer.streetName"
+            name="streetName"
+            #streetName="ngModel"
+          />
+        </div>
+        <div class="col-4">
+            <label> Area Name </label>
+            <br />
+            <input
+              class="form-control border-dark"
+              type="text"
+              [(ngModel)]="customer.areaName"
+              name="areaName"
+              #areaName="ngModel"
+            />
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label> City </label>
+          <br />
+          <input
+            class="form-control border-dark"
+            type="text"
+            [(ngModel)]="customer.city"
+            name="city"
+            #city="ngModel"
+          />
+        </div>
+        <div class="col-4">
+          <label> State </label>
+          <br />
+          <input
+            class="form-control border-dark"
+            type="text"
+            [(ngModel)]="customer.state"
+            name="state"
+            #state="ngModel"
+          />
+        </div>
+        <div class="col-4">
+            <label> Pincode </label>
+            <br />
+            <input
+              class="form-control border-dark"
+              type="text"
+              [(ngModel)]="customer.pincode"
+              name="pincode"
+              #pincode="ngModel"
+            />
+          </div>
+      </div>
+  </form>
+</div>

@@ -17,6 +17,8 @@ import { UserViewBookComponent } from './user-view-book/user-view-book.component
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { FooterComponent } from './footer/footer.component';
     AdminNavComponent,
     UserNavComponent,
     FooterComponent,
+    UserProfileComponent,
+    UserCartComponent,
   ],
   imports: [
     BrowserModule,

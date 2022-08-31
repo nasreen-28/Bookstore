@@ -1,0 +1,23 @@
+label {
+    font-weight: 600;
+    margin-top: 10%;
+  }
+
+  .content {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 4%;
+    margin-bottom: 7%;
+  }
+
+  h5{
+    font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 30%;
+  margin-top: 7%;
+  }
+
+  input{
+    width: 80%;
+    margin-top: 2%;
+  }

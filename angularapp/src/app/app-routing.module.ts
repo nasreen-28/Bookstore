@@ -9,6 +9,8 @@ import { AdminViewBookComponent } from './admin-view-book/admin-view-book.compon
 import { AdminEditBookComponent } from './admin-edit-book/admin-edit-book.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserViewBookComponent } from './user-view-book/user-view-book.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'admin/viewBook', component: AdminViewBookComponent },
   { path: 'admin/editBook/:id', component: AdminEditBookComponent },
   { path: 'user/home', component: UserHomeComponent },
-  { path: 'user/viewBook/:id', component: UserViewBookComponent }
+  { path: 'user/viewBook/:id', component: UserViewBookComponent },
+  {path:'user/profile',component:UserProfileComponent},
+  {path:'user/cart',component:UserCartComponent}
 ];
 
 @NgModule({

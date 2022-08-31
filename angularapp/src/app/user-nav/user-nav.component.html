@@ -4,13 +4,14 @@
       <div class="navbar-collapse offcanvas-collapse">
         <ul class="navbar-nav ms-auto navbar-nav-scroll">
           <li class="nav-item">
-            <a class="nav-link white">My profile</a>
+            <a class="nav-link white"  [routerLink]="['/user/profile']"
+            routerLinkActive="router-link-active" >My profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link white">My Orders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link white">Cart</a>
+            <a class="nav-link white" [routerLink]="['user/cart']" >Cart</a>
           </li>
           <li class="nav-item">
             <a
