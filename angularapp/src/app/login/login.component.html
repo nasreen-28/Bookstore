@@ -101,7 +101,7 @@
                 <label name="email">Email</label>
               </div>
               <div class="row input">
-                <input class="form-control border-dark" required ngModel type="text" name="emailID" #emailid="ngModel"
+                <input class="form-control border-dark" required ngModel type="text"[(ngModel)]="user.emailId" name="emailID" #emailid="ngModel"
                   placeholder="Enter your email id" />
                 <div class="alert-danger" *ngIf="emailid.touched && !emailid.valid">
                   Email id is required
@@ -115,7 +115,7 @@
                 <label name="password">Password</label>
               </div>
               <div class="row input">
-                <input class="form-control border-dark" type="password" required ngModel #password="ngModel" name="password"
+                <input class="form-control border-dark" type="password" required [(ngModel)]="user.password" ngModel #password="ngModel" name="password"
                   placeholder="Enter password" />
                 <div class="alert-danger" *ngIf="password.touched && !password.valid">
                   Password is required

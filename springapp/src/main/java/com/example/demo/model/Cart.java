@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
-import javax.persistence.CascadeType;
+import java.sql.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,21 +12,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
-
 @Data
-@Entity 
-@Table(name="cart_details")
-
+@Entity
+@Table(name = "cart_details")
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer quantity;
-    private Double price;
-   /*  @ManyToOne
-   private Book book;*/
-   @ManyToOne(cascade = CascadeType.DETACH)
-   @JoinColumn(name = "book", referencedColumnName = "bookId")
-   private Book book;
 
+    @Column(name = "created_date")
+    private Date createdDate;
+
+    @ManyToOne
+    @JoinColumn(name = "bookId")
+    private Book book;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    private int quantity;
 }

@@ -21,6 +21,8 @@ export class SignupComponent implements OnInit {
   onSubmit(){
     //console.log(this.user);
     this.saveUser();
+   
+    console.log(this.user);
     alert("Registration successful");
     this.router.navigate(['login']);
     

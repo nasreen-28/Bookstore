@@ -8,9 +8,17 @@ import { Signup } from './signup';
 })
 export class SignupService {
   private apiServerUrl = environment.apiBaseUrl;
+
+  
   constructor(private http: HttpClient) {}
+
+
 
   createUser(user: Signup): Observable<Object> {
     return this.http.post(`${this.apiServerUrl}/signup`, user);
+  }
+
+  login(user:Signup):Observable<Object>{
+    return this.http.post(`${this.apiServerUrl}/signin`,user);
   }
 }

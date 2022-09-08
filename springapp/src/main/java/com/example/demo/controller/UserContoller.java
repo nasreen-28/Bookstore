@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Book;
-import com.example.demo.model.Cart;
 import com.example.demo.model.Customer;
 import com.example.demo.service.BookService;
-import com.example.demo.service.CartService;
 import com.example.demo.service.CustomerService;
 
 @CrossOrigin(origins = "*")
@@ -29,9 +27,7 @@ public class UserContoller {
     @Autowired
     private CustomerService customerService;
 
-    @Autowired
-    private CartService cartService;
-
+   
     @GetMapping("/viewBooks")
     public List<Book> viewBooks() {
         return bookService.viewBooks();
@@ -42,18 +38,5 @@ public class UserContoller {
         return customerService.addCustomer(customer);
     }
 
-    @PostMapping("/addToCart")
-    public Cart addItemToCart(@RequestBody Cart cart) {
-        return cartService.addToCart(cart);
-    }
-
-    @GetMapping("/viewCart")
-    public List<Cart> viewCart() {
-        return cartService.viewCart();
-    }
-
-    @DeleteMapping("/deleteItem/{cartId}")
-    public void deleteCartItem(@PathVariable Long cartId) {
-        cartService.deleteCartItem(cartId);
-    }
+  
 }

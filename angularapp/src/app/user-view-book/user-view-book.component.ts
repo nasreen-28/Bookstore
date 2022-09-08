@@ -32,4 +32,8 @@ export class UserViewBookComponent implements OnInit {
     );
   }
 
+  addtocart(){
+    
+  }
+
 }

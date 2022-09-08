@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Cart;
 
 @Repository
-public interface CartRepository extends JpaRepository<Cart, Long> {
-
+public interface CartRepository extends JpaRepository<Cart,Long>{
+    
 }
