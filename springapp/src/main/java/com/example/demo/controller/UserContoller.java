@@ -33,7 +33,6 @@ public class UserContoller {
     @Autowired
     private CartService cartService;
 
-   
     @GetMapping("/viewBooks")
     public List<Book> viewBooks() {
         return bookService.viewBooks();
@@ -45,18 +44,17 @@ public class UserContoller {
     }
 
     @PostMapping("/addToCart")
-    public Cart addToCart(@RequestBody CartRequest cart){
+    public Cart addToCart(@RequestBody CartRequest cart) {
         System.out.println(cart);
         return cartService.addToCart(cart);
-      //return null;
+        // return null;
     }
 
-
     @GetMapping("/getUserCart/{id}")
-    public List<CartResponse> getUserCart(@PathVariable String id){
+    public List<CartResponse> getUserCart(@PathVariable String id) {
         Long userId = Long.parseLong(id);
         System.out.println(userId);
         return cartService.getUserCart(userId);
     }
-  
+
 }

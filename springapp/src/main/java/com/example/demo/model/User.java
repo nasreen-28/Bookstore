@@ -36,20 +36,20 @@ public class User {
    * 
    * private Collection<Role> roles;
    *//*
-  private String role;
-
-  public User(String name, String mobileNumber, String password, String emailId, String role) {
-    this.name = name;
-    this.mobileNumber = mobileNumber;
-    this.password = password;
-    this.emailId = emailId;
-    this.role = role;
-  }
-}
-
-
-package com.chessacademy.projectbackend.Models;
-*/
+      private String role;
+      
+      public User(String name, String mobileNumber, String password, String emailId, String role) {
+      this.name = name;
+      this.mobileNumber = mobileNumber;
+      this.password = password;
+      this.emailId = emailId;
+      this.role = role;
+      }
+      }
+      
+      
+      package com.chessacademy.projectbackend.Models;
+      */
 import java.util.HashSet;
 import java.util.Set;
 
@@ -92,7 +92,6 @@ public class User {
   @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
 
-  
   public User() {
   }
 
@@ -103,13 +102,14 @@ public class User {
     this.mobileNumber = mobileNumber;
   }
 
-  public User(Long userid,String name, String emailId, String password, String mobileNumber) {
-    this.userid=userid;
+  public User(Long userid, String name, String emailId, String password, String mobileNumber) {
+    this.userid = userid;
     this.name = name;
     this.emailId = emailId;
     this.password = password;
     this.mobileNumber = mobileNumber;
   }
+
   public String getMobileNumber() {
     return mobileNumber;
   }
@@ -117,8 +117,6 @@ public class User {
   public void setMobileNumber(String mobileNumber) {
     this.mobileNumber = mobileNumber;
   }
-
-  
 
   public String getName() {
     return name;

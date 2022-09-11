@@ -4,7 +4,7 @@ public class CartRequest {
     private String bookId;
     private String userId;
     private int quantity;
-    
+
     public String getBookId() {
         return bookId;
     }
@@ -37,5 +37,5 @@ public class CartRequest {
 
     public CartRequest() {
     }
-    
+
 }

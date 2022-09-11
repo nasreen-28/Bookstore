@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class SignUpRequest {
-    
+
   @NotEmpty
   @Size(min = 3, max = 20, message = "name must have atleast 3 characters")
   private String name;
@@ -23,15 +23,13 @@ public class SignUpRequest {
   @Size(min = 8, max = 20, message = "password should have atleast 8 characters")
   private String password;
 
-
-
   @NotEmpty
   @Pattern(regexp = "(0/91)?[6-9][0-9]{9}", message = "Mobile number  is invalid")
   @Size(min = 10, max = 10)
   private String mobileNumber;
 
- // private List<String> role;
- private String role;
+  // private List<String> role;
+  private String role;
 
   public String getMobileNumber() {
     return mobileNumber;
@@ -73,11 +71,13 @@ public class SignUpRequest {
     this.role = role;
   }
 
- /*  public List<String> getRole() {
-    return this.role;
-  }
-
-  public void setRole(List<String> role) {
-    this.role = role;
-  }*/
+  /*
+   * public List<String> getRole() {
+   * return this.role;
+   * }
+   * 
+   * public void setRole(List<String> role) {
+   * this.role = role;
+   * }
+   */
 }

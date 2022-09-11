@@ -3,13 +3,24 @@
   <div class="row hcard">
     <div *ngFor="let book of books" class="col-md-6 col-xl-4">
       <div class="card vcard" style="width: 20rem">
-        <img class="card-img-top" src="{{ book?.bookImageUrl }}" alt="Card image cap" style="height: 18rem ;" />
+        <img
+          class="card-img-top"
+          src="{{ book?.bookImageUrl }}"
+          alt="Card image cap"
+          style="height: 18rem"
+        />
         <div class="card-body cbody">
           <h5 class="card-title">{{ book?.bookTitle }}</h5>
           <p class="card-text">Rs. {{ book.bookPrice }}</p>
         </div>
         <div class="card-footer cfoot">
-          <a class="btn btn-dark" [routerLink]="['/user/viewBook',book.bookId]" routerLinkActive="router-link-active"  role="button">View</a>
+          <a
+            class="btn btn-dark"
+            [routerLink]="['/user/viewBook', book.bookId]"
+            routerLinkActive="router-link-active"
+            role="button"
+            >View</a
+          >
         </div>
       </div>
     </div>

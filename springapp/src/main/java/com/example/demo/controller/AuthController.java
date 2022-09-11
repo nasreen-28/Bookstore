@@ -31,8 +31,7 @@ public class AuthController {
 
   // adding signup data
   @PostMapping("/signup")
-  public ResponseEntity<MessageResponse> registerUser(@Valid @RequestBody SignUpRequest signUpRequest
-      ) {
+  public ResponseEntity<MessageResponse> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
     return userService.registerUser(signUpRequest);
   }
 
