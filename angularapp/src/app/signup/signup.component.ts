@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Signup } from './signup';
 import { SignupService } from './signup.service';
 
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
 
   user: Signup = new Signup();
 
-  constructor(private signupService : SignupService, private router:Router
+  constructor(private signupService : SignupService, private router:Router, private toast:ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -28,10 +29,14 @@ export class SignupComponent implements OnInit {
     
   }
 
+  openSuccess(){
+    this.toast.success('Registration success','Success');
+    }
   saveUser(){
     this.signupService.createUser(this.user).subscribe(
       (data: any) => {
         console.log(data);
+        this.openSuccess();
       },
       (error: any) => console.error(error)
     );

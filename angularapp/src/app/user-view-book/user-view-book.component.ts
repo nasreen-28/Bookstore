@@ -9,24 +9,27 @@ import { Signup } from '../signup/signup';
 @Component({
   selector: 'app-user-view-book',
   templateUrl: './user-view-book.component.html',
-  styleUrls: ['./user-view-book.component.css']
+  styleUrls: ['./user-view-book.component.css'],
 })
 export class UserViewBookComponent implements OnInit {
-
-  bookId:number;
-  book : Book = new Book();
-userId:String;
-  quantity:number;
-  cart:CartItem=new CartItem();
-  constructor(private route:ActivatedRoute,private bookService:BookService,private cartService:CartService) { }
+  bookId: number;
+  book: Book = new Book();
+  userId: String;
+  quantity: number;
+  cart: CartItem = new CartItem();
+  constructor(
+    private route: ActivatedRoute,
+    private bookService: BookService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(paramsId => {
+    this.route.params.subscribe((paramsId) => {
       this.bookId = paramsId['id'];
       console.log(this.bookId);
       this.getBookById(this.bookId);
     });
-    this.quantity=1
+    this.quantity = 1;
   }
 
   getBookById(bookId: number) {
@@ -39,33 +42,31 @@ userId:String;
     );
   }
 
-  minus()
-  {
-    if(this.quantity>=2)
-      this.quantity--;
+  minus() {
+    if (this.quantity >= 2) this.quantity--;
   }
-  plus()
-  {
-    if(this.quantity<=9)
-    this.quantity++;
+  plus() {
+    if (this.quantity <= 9) this.quantity++;
   }
-  addtocart(){
- this.cart.bookId=this.bookId;
-//this.userId=sessionStorage.getItem('userId');
- this.cart.userId=sessionStorage.getItem('userId') ;
- this.cart.quantity=this.quantity;
-// console.log(this.cart);
+  addtocart() {
+    this.cart.bookId = this.bookId;
+    //this.userId=sessionStorage.getItem('userId');
 
- this.cartService.addItemToCart(this.cart).subscribe(
-  (data: any) => {
-    console.log(data);
-    alert("Item added to cart");
-    
-  },
-  (error: any) => console.error(error)
-);
+    this.cart.userId = sessionStorage.getItem('userId');
+    //console.log(this.cart.userId);
+    this.cart.quantity = this.quantity;
+    // console.log(this.cart);
 
-    
+    if (this.cart.userId == null) {
+      alert('You must login to continue');
+    } else {
+      this.cartService.addItemToCart(this.cart).subscribe(
+        (data: any) => {
+          console.log(data);
+          alert('Item added to cart');
+        },
+        (error: any) => console.error(error)
+      );
+    }
   }
-
 }

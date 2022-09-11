@@ -24,6 +24,7 @@ export class UserCartComponent implements OnInit {
   }
   getUserCart() {
     this.userId = sessionStorage.getItem('userId');
+    
     this.cartService.getUserCart(this.userId).subscribe(
       (data: any) => {
         // console.log(data);

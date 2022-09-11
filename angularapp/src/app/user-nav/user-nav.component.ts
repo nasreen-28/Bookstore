@@ -11,5 +11,7 @@ export class UserNavComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+logout(){
+  sessionStorage.clear();
+}
 }
