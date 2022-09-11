@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 import { CartItem } from '../cartitem';
 import { CartService } from '../cart.service';
 import { Signup } from '../signup/signup';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-view-book',
@@ -20,7 +21,9 @@ export class UserViewBookComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toast:ToastrService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +51,7 @@ export class UserViewBookComponent implements OnInit {
   plus() {
     if (this.quantity <= 9) this.quantity++;
   }
-  addtocart() {
+  async addtocart() {
     this.cart.bookId = this.bookId;
     //this.userId=sessionStorage.getItem('userId');
 
@@ -58,15 +61,30 @@ export class UserViewBookComponent implements OnInit {
     // console.log(this.cart);
 
     if (this.cart.userId == null) {
-      alert('You must login to continue');
+      this.toast.error('You must login to continue','Failure',{
+        positionClass: 'toast-top-right' 
+     })
+     // await sleep(2000);
+     // this.router.navigate(['/login'])
+      //alert('You must login to continue');
     } else {
       this.cartService.addItemToCart(this.cart).subscribe(
         (data: any) => {
           console.log(data);
-          alert('Item added to cart');
+          this.toast.success('Item added to cart','Success');
+         // alert('Item added to cart');
         },
         (error: any) => console.error(error)
       );
     }
   }
+
+  
 }
+function sleep(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
+
+
+

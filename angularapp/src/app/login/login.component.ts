@@ -1,6 +1,7 @@
-import { ThisReceiver } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Signup } from '../signup/signup';
 import { SignupService } from '../signup/signup.service';
 
@@ -11,7 +12,7 @@ import { SignupService } from '../signup/signup.service';
 })
 export class LoginComponent implements OnInit {
 user:Signup=new Signup();
-  constructor(private signupService:SignupService,private router:Router) { }
+  constructor(private signupService:SignupService,private router:Router,private toast:ToastrService) { }
 
   ngOnInit(): void {
     
@@ -39,8 +40,12 @@ user:Signup=new Signup();
         }
 
       },
-      (error: any) => console.error(error)
+      (error: any) => this.invalid()
     );
+  }
+  invalid(): void {
+    this.toast.error('Invalid credentials','Failure');
+  //  success('Registration success','Success');
   }
 
 
