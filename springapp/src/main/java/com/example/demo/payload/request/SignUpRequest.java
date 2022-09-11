@@ -1,8 +1,5 @@
 package com.example.demo.payload.request;
 
-import java.util.List;
-import java.util.Set;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;

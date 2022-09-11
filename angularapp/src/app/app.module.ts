@@ -37,6 +37,7 @@ import { UserCartComponent } from './user-cart/user-cart.component';
     FooterComponent,
     UserProfileComponent,
     UserCartComponent,
+   
   ],
   imports: [
     BrowserModule,

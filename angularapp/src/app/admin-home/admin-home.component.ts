@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
-
+adminName:any;
   constructor() { }
 
   ngOnInit(): void {
+   this.adminName= sessionStorage.getItem('adminName');
+   //console.log(this.name);
   }
 
  

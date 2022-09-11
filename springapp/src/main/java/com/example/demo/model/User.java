@@ -65,6 +65,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "users", uniqueConstraints = {
     @UniqueConstraint(columnNames = "emailId")
@@ -100,6 +103,13 @@ public class User {
     this.mobileNumber = mobileNumber;
   }
 
+  public User(Long userid,String name, String emailId, String password, String mobileNumber) {
+    this.userid=userid;
+    this.name = name;
+    this.emailId = emailId;
+    this.password = password;
+    this.mobileNumber = mobileNumber;
+  }
   public String getMobileNumber() {
     return mobileNumber;
   }
@@ -108,13 +118,7 @@ public class User {
     this.mobileNumber = mobileNumber;
   }
 
-  public Long getId() {
-    return userid;
-  }
-
-  public void setId(Long id) {
-    this.userid = id;
-  }
+  
 
   public String getName() {
     return name;
@@ -146,5 +150,13 @@ public class User {
 
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
+  }
+
+  public Long getUserid() {
+    return userid;
+  }
+
+  public void setUserid(Long userid) {
+    this.userid = userid;
   }
 }

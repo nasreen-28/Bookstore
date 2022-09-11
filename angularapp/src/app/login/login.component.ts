@@ -24,13 +24,17 @@ user:Signup=new Signup();
   login() {
     this.signupService.login(this.user).subscribe(
       (data: any) => {
-        console.log(data.roles[0]);
+        console.log(data);
         if(data.roles[0]=="ROLE_USER")
         {
+          sessionStorage.setItem('userName',data.username);
+          sessionStorage.setItem('userId',data.id);
           this.router.navigate(['/user/home']);
         }
         else if(data.roles[0]=="ROLE_ADMIN")
         {
+          //console.log(data);
+          sessionStorage.setItem('adminName',data.username);
           this.router.navigate(['/admin/home']);
         }
 

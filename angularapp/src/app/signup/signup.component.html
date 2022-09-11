@@ -452,8 +452,8 @@
               placeholder="Enter your Role"
             />-->
             <select [(ngModel)]="user.role"  ngModel
-            #role="ngModel" name="role" >
-              <option value="">Role</option>
+            #role="ngModel" name="role" placeholder="Select your role" class="form-control border-dark">
+            <option value="" disabled selected hidden>Enter your role</option>
               <option value="ROLE_USER">User</option>
               <option value="ROLE_ADMIN">Admin</option>
               

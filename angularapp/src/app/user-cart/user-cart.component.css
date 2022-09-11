@@ -1,0 +1,16 @@
+.cart{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.fw {
+    font-weight: 600;
+  }
+.content {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 7%;
+  }
+  .quantity{
+    width: 7%;
+    text-align: center;
+  }

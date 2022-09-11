@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminNavComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    window.sessionStorage.clear();
+    console.log(sessionStorage.getItem('adminName'));
+    }
 }

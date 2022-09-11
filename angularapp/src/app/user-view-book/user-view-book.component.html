@@ -12,9 +12,18 @@
             <p>{{book.isbnnumber}}</p>
             <p class="fw">Book Price:</p>
             <p>{{book.bookPrice}}</p>
+            <p class="fw">Quantity:</p>
+<button type="button" (click)="minus()">
+    <i class="bi bi-dash-lg"></i></button>
+    <input type="text" class="quantity" [value]=quantity>
+
+    <button type="button" (click)="plus()">
+        <i class="bi bi-plus-lg"></i></button>
+
+
             <div class="btns">
-                <a class="btn btn-dark atc" href="#" role="button" (click)="addtocart()" >Add to cart    <i class="bi bi-cart4"></i></a>
-                <a class="btn btn-dark bn" href="#" role="button">Buy now    <i class="bi bi-bag-heart-fill"></i></a>
+                <a class="btn btn-dark atc"  role="button" (click)="addtocart()" >Add to cart    <i class="bi bi-cart4"></i></a>
+                <a class="btn btn-dark bn"  role="button">Buy now    <i class="bi bi-bag-heart-fill"></i></a>
 
             </div>
             

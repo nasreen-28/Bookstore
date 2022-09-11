@@ -1,3 +1,31 @@
 <app-user-nav></app-user-nav>
 
+<div class="content">
+  <div *ngFor="let item of cartitems" class="cart">
+    <div class="row">
+      <div class="col-3">
+        <img src="{{ item.bookImageUrl }}" height="150px" width="150px" />
+      </div>
+      <div class="col-7">
+        <h3>{{ item.bookTitle }}</h3>
+        <p class="fw">Quantity:</p>
+        <button type="button" (click)="minus()">
+          <i class="bi bi-dash-lg"></i>
+        </button>
+        <input type="text" class="quantity" [value]="item.quantity" />
+
+        <button type="button" (click)="plus()">
+          <i class="bi bi-plus-lg"></i>
+        </button>
+
+        
+        
+      </div>
+      <div class="col-2 fw"><div>{{ item.bookPrice }}</div></div>
+    </div>
+    <hr>
+
+  </div>
+</div>
+
 <app-footer></app-footer>
