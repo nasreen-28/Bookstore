@@ -11,26 +11,18 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Table(name = "customer")
+@Table(name = "contact_details")
 @Data
-public class Customer {
+@Entity
+public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long customerId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstName;
     private String lastName;
     private String emailId;
     private String mobileNumber;
-    private String houseNo;
-    private String streetName;
-    private String areaName;
-    private String city;
-    private String state;
-    private String pincode;
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "user",referencedColumnName = "userid")
     private User user;
-
-    
 }

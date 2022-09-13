@@ -30,13 +30,28 @@ public class CartServiceImpl implements CartService {
   @Override
   public Cart addToCart(CartRequest cart) {
     Cart cartItem = new Cart();
-
     User user = userRepository.findById(Long.parseLong(cart.getUserId())).get();
     Book book = bookRepository.findById(Long.parseLong(cart.getBookId())).get();
-    cartItem.setBook(book);
-    cartItem.setUser(user);
-    cartItem.setQuantity(cart.getQuantity());
-    return cartRepository.save(cartItem);
+    Long bookId=book.getBookId();
+    List<Cart> userCart = cartRepository.findAllByUser(user);
+    //List<Book>
+    for (Cart cart2 : userCart) {
+      Long bookId1 = cart2.getBook().getBookId();
+      if(bookId==bookId1)
+      {
+       cart2.setQuantity(cart2.getQuantity()+cart.getQuantity());
+       return cartRepository.save(cart2);
+      } 
+    }
+      cartItem.setBook(book);
+      cartItem.setUser(user);
+      cartItem.setQuantity(cart.getQuantity());
+      return cartRepository.save(cartItem);
+    
+    
+
+    
+    
   }
 
   @Override
@@ -57,6 +72,14 @@ public class CartServiceImpl implements CartService {
       // System.out.println(cartResponse.toString());
     }
     return userCart;
+  }
+
+  @Override
+  public void deleteCartItem(Long bookId) {
+    // TODO Auto-generated method stub
+    Cart cartItem = cartRepository.getByBook(bookRepository.findById(bookId).get());
+    cartRepository.delete(cartItem);
+
   }
 
 }
