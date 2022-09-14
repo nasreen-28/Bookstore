@@ -10,8 +10,12 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 10%;
+  margin-top: 10%;
 }
-
+.search{
+  width: 50%;
+  margin-left: 20%;
+}
 .cbody {
   height: 130px;
 }
@@ -21,3 +25,7 @@
   border: none;
   text-align: center;
 }
+
+.page{
+  text-align: center;
+margin-bottom: 10%;}

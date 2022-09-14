@@ -21,6 +21,10 @@ import { FooterComponent } from './footer/footer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { ToastrModule } from 'ngx-toastr';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {Ng2OrderModule} from 'ng2-order-pipe'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderPlacedComponent } from './order-placed/order-placed.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     UserProfileComponent,
     UserCartComponent,
+    OrderPlacedComponent,
    
   ],
   imports: [
@@ -49,6 +54,9 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), 
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
     
   ],
   providers: [],

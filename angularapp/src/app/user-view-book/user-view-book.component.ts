@@ -18,6 +18,7 @@ export class UserViewBookComponent implements OnInit {
   userId: String;
   quantity: number;
   cart: CartItem = new CartItem();
+  snippets:String[];
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
@@ -33,6 +34,8 @@ export class UserViewBookComponent implements OnInit {
       this.getBookById(this.bookId);
     });
     this.quantity = 1;
+
+   // this.snippets=["Hello","hi","How","Are","you"];
   }
 
   getBookById(bookId: number) {
@@ -74,7 +77,7 @@ export class UserViewBookComponent implements OnInit {
           this.toast.success('Item added to cart','Success');
          // alert('Item added to cart');
         },
-        (error: any) => console.error(error)
+        (error: any) => this.toast.error('Please try again later','Something wrong')
       );
     }
   }

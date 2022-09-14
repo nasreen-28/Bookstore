@@ -30,36 +30,30 @@ public class CartServiceImpl implements CartService {
   @Override
   public Cart addToCart(CartRequest cart) {
     Cart cartItem = new Cart();
-    User user = userRepository.findById(Long.parseLong(cart.getUserId())).get();
-    Book book = bookRepository.findById(Long.parseLong(cart.getBookId())).get();
-    Long bookId=book.getBookId();
+    User user = userRepository.getByUserid(Long.parseLong(cart.getUserId()));
+    // findById(Long.parseLong(cart.getUserId())).get();
+    Book book = bookRepository.getByBookId(Long.parseLong(cart.getBookId()));
+    // findById(Long.parseLong(cart.getBookId())).get();
+    Long bookId = book.getBookId();
     List<Cart> userCart = cartRepository.findAllByUser(user);
-    //List<Book>
+    // List<Book>
     for (Cart cart2 : userCart) {
       Long bookId1 = cart2.getBook().getBookId();
-      if(bookId==bookId1)
-      {
-       cart2.setQuantity(cart2.getQuantity()+cart.getQuantity());
-       return cartRepository.save(cart2);
-      } 
+      if (bookId == bookId1) {
+        cart2.setQuantity(cart2.getQuantity() + cart.getQuantity());
+        return cartRepository.save(cart2);
+      }
     }
-      cartItem.setBook(book);
-      cartItem.setUser(user);
-      cartItem.setQuantity(cart.getQuantity());
-      return cartRepository.save(cartItem);
-    
-    
+    cartItem.setBook(book);
+    cartItem.setUser(user);
+    cartItem.setQuantity(cart.getQuantity());
+    return cartRepository.save(cartItem);
 
-    
-    
   }
 
   @Override
   public List<CartResponse> getUserCart(Long userId) {
-    User user = userRepository.findById(userId).get();
-    // System.out.println(cartRepository.findAllByUser(user));
-    List<Cart> cartItems = cartRepository.findAllByUser(user);
-    // List<Integer> list=new Arrays<Integer>();
+    List<Cart> cartItems = cartRepository.getCartByUser(userId);
     List<CartResponse> userCart = new LinkedList<>();
     for (Cart cart : cartItems) {
       CartResponse cartResponse = new CartResponse();
@@ -69,16 +63,15 @@ public class CartServiceImpl implements CartService {
       cartResponse.setBookTitle(cart.getBook().getBookTitle());
       cartResponse.setQuantity(cart.getQuantity());
       userCart.add(cartResponse);
-      // System.out.println(cartResponse.toString());
     }
     return userCart;
   }
 
   @Override
-  public void deleteCartItem(Long bookId) {
-    // TODO Auto-generated method stub
-    Cart cartItem = cartRepository.getByBook(bookRepository.findById(bookId).get());
-    cartRepository.delete(cartItem);
+  public void deleteCartItem(Long bookId, Long userId) {
+    Cart deleteItem = new Cart();
+    deleteItem = cartRepository.getByBookAndUser(bookId, userId);
+    cartRepository.delete(deleteItem);
 
   }
 

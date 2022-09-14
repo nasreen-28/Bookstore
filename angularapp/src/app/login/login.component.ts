@@ -4,19 +4,20 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Signup } from '../signup/signup';
 import { SignupService } from '../signup/signup.service';
+import { UserNavComponent } from '../user-nav/user-nav.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 user:Signup=new Signup();
-  constructor(private signupService:SignupService,private router:Router,private toast:ToastrService) { }
-
-  ngOnInit(): void {
-    
+  constructor(private signupService:SignupService,private router:Router,private toast:ToastrService,) {
+   // super();
   }
+
+  
 
   onSubmit(){
     console.log(this.user);
@@ -31,6 +32,7 @@ user:Signup=new Signup();
           sessionStorage.setItem('userName',data.username);
           sessionStorage.setItem('userId',data.id);
           this.router.navigate(['/user/home']);
+          //super.isUserAuthenticated=true;
         }
         else if(data.roles[0]=="ROLE_ADMIN")
         {

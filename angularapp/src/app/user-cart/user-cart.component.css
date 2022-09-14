@@ -14,3 +14,22 @@
     width: 7%;
     text-align: center;
   }
+
+  .delete{
+    margin-top: 3%;
+    font-size: 20px;
+  }
+
+  .subtotal{
+    text-align: right;
+  /*  padding-right: 2%;*/
+  }
+
+  .order{
+    text-align: center;
+    justify-content: center;
+    width: 12%;
+    margin-bottom: 10%;
+    margin-left: 45%;
+    margin-top: 5%;
+  }

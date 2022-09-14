@@ -1,8 +1,9 @@
+<div ></div>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand logo-text booklogo" href="/">Booksta</a>
+    <div class="container ">
+      <a class="navbar-brand logo-text booklogo" [routerLink]="['/user/home']" >Booksta</a>
       <div class="navbar-collapse offcanvas-collapse">
-        <ul class="navbar-nav ms-auto navbar-nav-scroll">
+        <ul  class="navbar-nav ms-auto navbar-nav-scroll">
           <li class="nav-item">
             <a class="nav-link white"  [routerLink]="['/user/profile']"
             routerLinkActive="router-link-active" >My profile</a>
@@ -23,6 +24,7 @@
             >
           </li>
         </ul>
+        
       </div>
     </div>
   </nav>

@@ -10,7 +10,7 @@
 }
 
 .btns {
-  margin-top: 20%;
+  margin-top: 15%;
 }
 
 .bn {
@@ -20,7 +20,4 @@
 .quantity{
   width: 7%;
   text-align: center;
-}
-.toast-top-right{
-  margin-top: 4%;
 }

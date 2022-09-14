@@ -16,17 +16,20 @@ import com.example.demo.model.Address;
 import com.example.demo.model.Book;
 import com.example.demo.model.Cart;
 import com.example.demo.model.Contact;
+import com.example.demo.model.Order;
 import com.example.demo.payload.request.CartRequest;
+import com.example.demo.payload.request.OrderRequest;
 import com.example.demo.payload.response.CartResponse;
 import com.example.demo.service.AddressService;
 import com.example.demo.service.BookService;
 import com.example.demo.service.CartService;
 import com.example.demo.service.ContactService;
+import com.example.demo.service.OrderService;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/user")
-public class UserContoller {
+public class UserController {
     @Autowired
     private BookService bookService;
 
@@ -38,6 +41,9 @@ public class UserContoller {
 
     @Autowired
     private AddressService addressService;
+
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/viewBooks")
     public List<Book> viewBooks() {
@@ -52,15 +58,16 @@ public class UserContoller {
     }
 
     @GetMapping("/getUserCart/{id}")
-    public List<CartResponse> getUserCart(@PathVariable String id) {
-        Long userId = Long.parseLong(id);
-        System.out.println(userId);
-        return cartService.getUserCart(userId);
+    public List<CartResponse> getUserCart(@PathVariable Long id) {
+       // Long userId = Long.parseLong(id);
+        //System.out.println(userId);
+        return cartService.getUserCart(id);
     }
 
-    @DeleteMapping("/deleteCartItem/{bookId}")
-    public void deleteCartItem(@PathVariable Long bookId){
-        cartService.deleteCartItem(bookId);
+    @DeleteMapping("/deleteCartItem/{bookId}/{userId}")
+    public void deleteCartItem(@PathVariable Long bookId,@PathVariable Long userId){
+       // Long userId2 = Long.parseLong(userId);
+        cartService.deleteCartItem(bookId,userId);
     }
 
     @PostMapping("/addContact")
@@ -73,5 +80,11 @@ public class UserContoller {
     public Address addAddress(@RequestBody Address address)
     {
         return addressService.addAddress(address);
+    }
+
+    @PostMapping("/placeOrder")
+    public Order placeOrder(@RequestBody OrderRequest orderRequest)
+    {
+        return orderService.placeOrder(orderRequest);
     }
 }
