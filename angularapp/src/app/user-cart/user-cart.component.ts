@@ -69,7 +69,12 @@ export class UserCartComponent implements OnInit {
     this.cartService.placeOrder(this.order).subscribe(
       (data: any) => {
         //this.books = data;
-        console.log(data);
+        console.log(data)
+        sessionStorage.setItem('orderId',data.orderId);
+        sessionStorage.setItem('orderDate',data.createdDate);
+        sessionStorage.setItem('noOfItems',data.cartItem.length);
+        sessionStorage.setItem('totalAmount',data.amount);
+        console.log(sessionStorage);
       },
       (error: any) => console.error(error)
     );

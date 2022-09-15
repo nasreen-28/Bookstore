@@ -25,6 +25,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {Ng2OrderModule} from 'ng2-order-pipe'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
+import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { OrderPlacedComponent } from './order-placed/order-placed.component';
     UserProfileComponent,
     UserCartComponent,
     OrderPlacedComponent,
+    UserViewOrdersComponent
    
   ],
   imports: [

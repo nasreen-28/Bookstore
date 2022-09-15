@@ -1,8 +1,17 @@
-label {
+.label1 {
     font-weight: 600;
-    margin-top: 10%;
+    margin-top: 7%;
   }
 
+label{
+  font-weight: 600;
+  margin-top: 2%;
+}
+
+.update{
+  margin-top: 10%;
+  margin-left: 40%;
+}
   .content {
     margin-left: 20%;
     margin-right: 20%;
@@ -18,6 +27,8 @@ label {
   }
 
   input{
-    width: 80%;
+    width: 70%;
     margin-top: 2%;
+    margin-left: 1%;
+
   }

@@ -3,6 +3,8 @@ package com.example.demo.service;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.text.View;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +14,10 @@ import com.example.demo.model.Order;
 import com.example.demo.model.User;
 import com.example.demo.payload.request.CartItem;
 import com.example.demo.payload.request.OrderRequest;
+import com.example.demo.payload.response.ViewOrder;
 import com.example.demo.repository.AddressRepository;
 import com.example.demo.repository.BookRepository;
+import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.UserRepository;
 
@@ -32,9 +36,12 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     AddressRepository addressRepository;
 
+    @Autowired
+    CartRepository cartRepository;
+
     @Override
     public Order placeOrder(OrderRequest orderRequest) {
-       // System.out.println(orderRequest.toString());
+        //System.out.println(orderRequest.toString());
         Order order=new Order();
         order.setAmount(orderRequest.getAmount());
         List<Cart> cartItems=new LinkedList<Cart>();
@@ -43,9 +50,17 @@ public class OrderServiceImpl implements OrderService{
         for (CartItem cart : orderRequest.getCartItem()) {
            Book book = bookRepository.findById(cart.getBookId()).get(); 
            Cart temp=new Cart();
+          Cart item=cartRepository.getByBookAndUser(cart.getBookId(), user.getUserid());
+           cartRepository.delete(item);
            temp.setBook(book);
            temp.setQuantity(cart.getQuantity());
            temp.setUser(user);
+           temp.setOrderStatus("Placed");
+           System.out.println(temp.toString());
+           //temp.setId(item.getId());
+           //cartRepository.delete(temp);
+           
+           cartItems.add(temp);
          
         }
        
@@ -55,7 +70,7 @@ public class OrderServiceImpl implements OrderService{
        // findByUser(userRepository.findById(orderRequest.getUserId()).get()));
        // User user=order.
        order.setCartItem(cartItems);
-       System.out.println(order.toString());
+       //System.out.println(order.toString());
       
        
     return orderRepository.save(order);  
@@ -84,5 +99,33 @@ public class OrderServiceImpl implements OrderService{
     // return a response
     return null; */
     }
+
+   @Override
+   public List<ViewOrder> viewOrders(Long userId) {
+      List<Order> orders= orderRepository.getOrderByUser(userId);
+      List<ViewOrder> responseItem=new LinkedList<>();
+      for (Order order : orders) {
+            ViewOrder item = new ViewOrder();
+            item.setAddress(order.getAddress().getCity());
+            item.setAmount(order.getAmount());
+            item.setCreatedDate(order.getCreatedDate());
+            item.setOrderId(order.getOrderId());
+            List<CartItem> cartItems=new LinkedList<>();
+            for (Cart citem : order.getCartItem()) {
+               CartItem cartItem=new CartItem();
+               cartItem.setBookId(citem.getBook().getBookId());
+               cartItem.setBookImageUrl(citem.getBook().getBookImageUrl());
+               cartItem.setBookPrice(citem.getBook().getBookPrice());
+               cartItem.setBookTitle(citem.getBook().getBookTitle());
+               cartItem.setQuantity(citem.getQuantity());
+               cartItems.add(cartItem);
+               
+            }
+            item.setCartItem(cartItems);
+            responseItem.add(item);
+         
+      }
+      return responseItem;
+   }
     
 }

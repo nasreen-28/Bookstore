@@ -31,4 +31,6 @@ public class Cart {
   private User user;
 
   private int quantity;
+
+  private String orderStatus;
 }

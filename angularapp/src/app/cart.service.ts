@@ -27,4 +27,8 @@ export class CartService {
   placeOrder(order: Order): Observable<Object> {
     return this.http.post(`${this.apiServerUrl}/user/placeOrder`, order);
   }
+
+  viewOrder(userId:any):Observable<Object>{
+    return this.http.get(`${this.apiServerUrl}/user/viewOrders/${userId}`);
+  }
 }

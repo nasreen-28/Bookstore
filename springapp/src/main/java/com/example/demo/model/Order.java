@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -17,7 +18,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.example.demo.payload.request.CartItem;
 
 import lombok.Data;
 
@@ -27,14 +27,16 @@ import lombok.Data;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderId;
 
     @ManyToOne
     @JoinColumn(name = "user", referencedColumnName = "userid")
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "order_id", referencedColumnName = "id")
+ //   @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @JoinTable(name = "cart_order", joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "id"))
+
     private List<Cart> cartItem;
 
     private Double amount;
@@ -48,7 +50,7 @@ public class Order {
     private Date createdDate;
 
     public Order(Long id, User user, List<Cart> cartItem, Double amount, Address address, Date createdDate) {
-        this.id = id;
+        this.orderId = id;
         this.user = user;
         this.cartItem = cartItem;
         this.amount = amount;
@@ -57,11 +59,11 @@ public class Order {
     }
 
     public Long getId() {
-        return id;
+        return orderId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.orderId = id;
     }
 
     public User getUser() {

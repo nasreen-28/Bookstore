@@ -12,6 +12,7 @@ import { UserViewBookComponent } from './user-view-book/user-view-book.component
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
+import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'user/viewBook/:id', component: UserViewBookComponent },
   {path:'user/profile',component:UserProfileComponent},
   {path:'user/cart',component:UserCartComponent},
-  {path:'user/placeOrder',component:OrderPlacedComponent}
+  {path:'user/placeOrder',component:OrderPlacedComponent},
+  {path:'user/viewOrders',component:UserViewOrdersComponent}
 ];
 
 @NgModule({

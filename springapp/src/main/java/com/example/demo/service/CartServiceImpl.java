@@ -56,13 +56,16 @@ public class CartServiceImpl implements CartService {
     List<Cart> cartItems = cartRepository.getCartByUser(userId);
     List<CartResponse> userCart = new LinkedList<>();
     for (Cart cart : cartItems) {
-      CartResponse cartResponse = new CartResponse();
-      cartResponse.setBookId(cart.getBook().getBookId());
-      cartResponse.setBookImageUrl(cart.getBook().getBookImageUrl());
-      cartResponse.setBookPrice(cart.getBook().getBookPrice());
-      cartResponse.setBookTitle(cart.getBook().getBookTitle());
-      cartResponse.setQuantity(cart.getQuantity());
-      userCart.add(cartResponse);
+      if(cart.getOrderStatus()==null){
+        CartResponse cartResponse = new CartResponse();
+        cartResponse.setBookId(cart.getBook().getBookId());
+        cartResponse.setBookImageUrl(cart.getBook().getBookImageUrl());
+        cartResponse.setBookPrice(cart.getBook().getBookPrice());
+        cartResponse.setBookTitle(cart.getBook().getBookTitle());
+        cartResponse.setQuantity(cart.getQuantity());
+        userCart.add(cartResponse);
+      }
+      
     }
     return userCart;
   }

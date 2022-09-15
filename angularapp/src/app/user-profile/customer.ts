@@ -1,13 +1,7 @@
-export class Customer {
+export class Contact {
     firstName:String;
     lastName:String;
     emailId:String;
     mobileNumber:String;
-    houseNo:String;
-    streetName:String;
-    areaName:String;
-    city:String;
-    state:String;
-    pincode:String;
- 
+  
 }

@@ -17,8 +17,8 @@ public class ContactServiceImpl implements ContactService {
     private UserRepository userRepository;
 
     @Override
-    public Contact addContact(Contact contact) {
-        User user = userRepository.findById(contact.getUser().getUserid()).get();
+    public Contact addContact(Contact contact,Long userId) {
+        User user = userRepository.findById(userId).get();
         contact.setUser(user);
         return contactRepository.save(contact);
     }

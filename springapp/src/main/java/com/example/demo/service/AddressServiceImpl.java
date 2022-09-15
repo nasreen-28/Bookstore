@@ -18,8 +18,8 @@ public class AddressServiceImpl implements AddressService{
     private AddressRepository addressRepository;
 
     @Override
-    public Address addAddress(Address address) {
-        User user=userRepository.findById(address.getUser().getUserid()).get();
+    public Address addAddress(Address address,Long userId) {
+        User user=userRepository.findById(userId).get();
         address.setUser(user);
         return addressRepository.save(address);
     }

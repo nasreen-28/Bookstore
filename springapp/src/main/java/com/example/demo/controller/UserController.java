@@ -20,6 +20,7 @@ import com.example.demo.model.Order;
 import com.example.demo.payload.request.CartRequest;
 import com.example.demo.payload.request.OrderRequest;
 import com.example.demo.payload.response.CartResponse;
+import com.example.demo.payload.response.ViewOrder;
 import com.example.demo.service.AddressService;
 import com.example.demo.service.BookService;
 import com.example.demo.service.CartService;
@@ -70,21 +71,26 @@ public class UserController {
         cartService.deleteCartItem(bookId,userId);
     }
 
-    @PostMapping("/addContact")
-    public Contact addContact(@RequestBody Contact contact)
+    @PostMapping("/addContact/{userId}")
+    public Contact addContact(@RequestBody Contact contact,@PathVariable Long userId)
     {
-        return contactService.addContact(contact);
+        return contactService.addContact(contact,userId);
     }
 
-    @PostMapping("/addAddress")
-    public Address addAddress(@RequestBody Address address)
+    @PostMapping("/addAddress/{userId}")
+    public Address addAddress(@RequestBody Address address,@PathVariable Long userId)
     {
-        return addressService.addAddress(address);
+        return addressService.addAddress(address,userId);
     }
 
     @PostMapping("/placeOrder")
     public Order placeOrder(@RequestBody OrderRequest orderRequest)
     {
         return orderService.placeOrder(orderRequest);
+    }
+
+    @GetMapping("/viewOrders/{userId}")
+    public List<ViewOrder> viewOrders(@PathVariable Long userId){
+        return orderService.viewOrders(userId);
     }
 }
