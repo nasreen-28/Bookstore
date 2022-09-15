@@ -23,5 +23,10 @@ public class AddressServiceImpl implements AddressService{
         address.setUser(user);
         return addressRepository.save(address);
     }
+
+    @Override
+    public Address getAddressByUser(Long userId) {
+        return addressRepository.findAddressByUser(userId);
+    }
     
 }

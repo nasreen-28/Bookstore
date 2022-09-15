@@ -13,6 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
 import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:'user/profile',component:UserProfileComponent},
   {path:'user/cart',component:UserCartComponent},
   {path:'user/placeOrder',component:OrderPlacedComponent},
-  {path:'user/viewOrders',component:UserViewOrdersComponent}
+  {path:'user/viewOrders',component:UserViewOrdersComponent},
+  {path:'admin/viewOrders',component:AdminOrdersComponent}
 ];
 
 @NgModule({

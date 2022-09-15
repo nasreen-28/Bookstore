@@ -31,4 +31,8 @@ export class CartService {
   viewOrder(userId:any):Observable<Object>{
     return this.http.get(`${this.apiServerUrl}/user/viewOrders/${userId}`);
   }
+
+  viewAllOrders():Observable<Object>{
+    return this.http.get(`${this.apiServerUrl}/admin/viewOrders`);
+  }
 }

@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Book;
+import com.example.demo.model.Order;
+import com.example.demo.payload.response.ViewOrder;
 import com.example.demo.service.BookService;
+import com.example.demo.service.OrderService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -22,6 +25,9 @@ import com.example.demo.service.BookService;
 public class AdminController {
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private OrderService orderService;
 
     @PostMapping("/addBook")
     public Book addBook(@RequestBody Book book) {
@@ -47,6 +53,12 @@ public class AdminController {
     @DeleteMapping("/deleteBook/{bookId}")
     public void deleteBook(@PathVariable Long bookId) {
         bookService.deleteBook(bookId);
+    }
+
+    @GetMapping("/viewOrders")
+    public List<ViewOrder> viewAllOrders()
+    {
+        return orderService.viewAllOrders();
     }
 
 }

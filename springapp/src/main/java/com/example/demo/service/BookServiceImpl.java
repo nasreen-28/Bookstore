@@ -20,7 +20,7 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public Book updateBook(Book book,Long id) {
-        Book oldBook=bookRepository.getById(id);
+        Book oldBook=bookRepository.getByBookId(id);
         oldBook.setBookTitle(book.getBookTitle());
         oldBook.setBookDesc(book.getBookDesc());
         oldBook.setBookImageUrl(book.getBookImageUrl());

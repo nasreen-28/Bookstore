@@ -10,5 +10,7 @@ import com.example.demo.model.Address;
 public interface AddressRepository extends JpaRepository<Address,Long> {
     @Query(value = "select u from Address u where u.user.userid=?1")
     Address findAddressByUser(Long userId);
+
+    
     
 }

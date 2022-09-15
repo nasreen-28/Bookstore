@@ -110,6 +110,38 @@ public class OrderServiceImpl implements OrderService{
             item.setAmount(order.getAmount());
             item.setCreatedDate(order.getCreatedDate());
             item.setOrderId(order.getOrderId());
+            item.setUserId(userId);
+            item.setUserName(userRepository.getByUserid(userId).getName());
+            List<CartItem> cartItems=new LinkedList<>();
+            for (Cart citem : order.getCartItem()) {
+               CartItem cartItem=new CartItem();
+               cartItem.setBookId(citem.getBook().getBookId());
+               cartItem.setBookImageUrl(citem.getBook().getBookImageUrl());
+               cartItem.setBookPrice(citem.getBook().getBookPrice());
+               cartItem.setBookTitle(citem.getBook().getBookTitle());
+               cartItem.setQuantity(citem.getQuantity());
+               cartItems.add(cartItem);
+               
+            }
+            item.setCartItem(cartItems);
+            responseItem.add(item);
+         
+      }
+      return responseItem;
+   }
+
+   @Override
+   public List<ViewOrder> viewAllOrders() {
+      List<Order> orders= orderRepository.findAll();
+      List<ViewOrder> responseItem=new LinkedList<>();
+      for (Order order : orders) {
+            ViewOrder item = new ViewOrder();
+            item.setAddress(order.getAddress().getCity());
+            item.setAmount(order.getAmount());
+            item.setCreatedDate(order.getCreatedDate());
+            item.setOrderId(order.getOrderId());
+            item.setUserId(order.getUser().getUserid());
+            item.setUserName(userRepository.getByUserid(order.getUser().getUserid()).getName());
             List<CartItem> cartItems=new LinkedList<>();
             for (Cart citem : order.getCartItem()) {
                CartItem cartItem=new CartItem();

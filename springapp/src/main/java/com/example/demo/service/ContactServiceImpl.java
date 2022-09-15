@@ -22,5 +22,11 @@ public class ContactServiceImpl implements ContactService {
         contact.setUser(user);
         return contactRepository.save(contact);
     }
+
+    @Override
+    public Contact getContactByUser(Long userId) {
+      
+        return contactRepository.findContactByUser(userId);
+    }
     
 }

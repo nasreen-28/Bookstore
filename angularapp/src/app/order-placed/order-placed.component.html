@@ -1,14 +1,17 @@
-<p>order-placed works!</p>
+<app-user-nav></app-user-nav>
+
 <div class="content">
     <i class="bi bi-check-circle-fill icon"></i><br>
     Your order has been placed!
-    <div class="summary">
+    <div class="summary" >
         <p>Order summary: </p>
-        <p>Order id:{{orderId}}</p>
-        <p>Order date:{{orderDate}} </p>
-        <p>Total no of items:{{items}} </p>
-        <p>Total amount:{{amount}} </p>
+        <p>Order id:{{getOrderId()}}</p>
+        <p>Order date:{{getOrderDate()}} </p>
+        <p>Total no of items:{{getItems()}} </p>
+        <p>Total amount:{{getAmount()}} </p>
     </div>
     
     
 </div>
+
+<app-footer></app-footer>

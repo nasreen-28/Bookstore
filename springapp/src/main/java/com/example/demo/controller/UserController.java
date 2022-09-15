@@ -77,12 +77,26 @@ public class UserController {
         return contactService.addContact(contact,userId);
     }
 
+
+    @GetMapping("/getContact/{userId}")
+    public Contact getContact(@PathVariable Long userId)
+    {
+        return contactService.getContactByUser(userId);
+       
+    }
+
     @PostMapping("/addAddress/{userId}")
     public Address addAddress(@RequestBody Address address,@PathVariable Long userId)
     {
         return addressService.addAddress(address,userId);
     }
 
+    @GetMapping("/getAddress/{userId}")
+    public Address getAddress(@PathVariable Long userId)
+    {
+       return addressService.getAddressByUser(userId);
+       
+    }
     @PostMapping("/placeOrder")
     public Order placeOrder(@RequestBody OrderRequest orderRequest)
     {

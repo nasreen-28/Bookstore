@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../cart.service';
+import { ContactService } from '../contact.service';
 import { Order } from '../order';
 import { UserCart } from '../user-cart';
 
@@ -23,7 +24,8 @@ export class UserCartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private toast: ToastrService,
-    private router: Router
+    private router: Router,
+    private contactService:ContactService
   ) {}
 
   ngOnInit(): void {
@@ -79,7 +81,19 @@ export class UserCartComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
-
+  getAddress() {
+    this.contactService.getAddress(this.userId).subscribe(
+      (data: any) => {
+        console.log(data);
+       // this.toast.success('Item added to cart','Success');
+       // alert('Item added to cart');
+      if(data==null)
+      {
+        this.toast.warning('Please update your profile','Wanring')
+      }
+      (error: any) => this.toast.error('Please try again later','Something wrong')
+  });
+  }
   deleteCartItem(bookId: number) {
     this.cartService.deleteCartItem(bookId, this.userId).subscribe(
       (data: any) => {

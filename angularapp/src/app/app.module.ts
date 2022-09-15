@@ -26,6 +26,7 @@ import {Ng2OrderModule} from 'ng2-order-pipe'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
 import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.com
     UserProfileComponent,
     UserCartComponent,
     OrderPlacedComponent,
-    UserViewOrdersComponent
+    UserViewOrdersComponent,
+    AdminOrdersComponent
    
   ],
   imports: [

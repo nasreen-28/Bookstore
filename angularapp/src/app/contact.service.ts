@@ -24,4 +24,12 @@ export class ContactService {
   saveAddress(address:Address,userId:any): Observable<Object> {
     return this.http.post(`${this.apiServerUrl}/user/addAddress/${userId}`,address);
   }
+
+  getContact(userId:any): Observable<Object> {
+    return this.http.get(`${this.apiServerUrl}/user/getContact/${userId}`);
+  }
+
+  getAddress(userId:any): Observable<Object> {
+    return this.http.get(`${this.apiServerUrl}/user/getAddress/${userId}`);
+  }
 }

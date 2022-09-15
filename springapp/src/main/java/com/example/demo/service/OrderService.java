@@ -11,5 +11,7 @@ public interface OrderService {
 
     List<ViewOrder> viewOrders(Long userId);
 
+    List<ViewOrder> viewAllOrders();
+
    // Purchase placeOrder(Purchase purchase);
 }

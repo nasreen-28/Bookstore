@@ -10,6 +10,8 @@ import lombok.Data;
 @Data
 public class ViewOrder {
     private Long orderId;
+    private Long userId;
+    private String userName;
     private String address;
     private Date createdDate;
     private Double amount;

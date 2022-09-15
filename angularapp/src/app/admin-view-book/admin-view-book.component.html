@@ -2,8 +2,13 @@
 <!--<img class="image-fluid bookbg" src="assets/bookbg.jpg" alt="book" width="100%" height="100%" />
 -->
 <div class="content">
+  <div class="input-group search">
+    <span class="input-group-text" bg-white> <i class="bi bi-search"></i></span>
+    <input class="form-control  border-dark" type="search" name="bookTitle"  [(ngModel)]="bookTitle" (ngModelChange)="search()" placeholder="Enter a book to search">
+    
+</div>
   <div class="row hcard">
-    <div *ngFor="let book of books" class="col-md-6 col-xl-4">
+    <div *ngFor="let book of books | paginate:{itemsPerPage:6,currentPage:p}" class="col-md-6 col-xl-4">
       <div class="card vcard" style="width: 20rem">
         <img class="card-img-top" src="{{ book?.bookImageUrl }}" alt="Card image cap" style="height: 18rem" />
         <div class="card-body cbody">
@@ -19,5 +24,8 @@
       </div>
     </div>
   </div>
+  
+  <div class="page"><pagination-controls  (pageChange)="p = $event"></pagination-controls>
+
 </div>
 <app-footer></app-footer>
