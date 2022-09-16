@@ -20,19 +20,21 @@ export class CartService {
     return this.http.get(`${this.apiServerUrl}/user/getUserCart/${userId}`);
   }
 
-  deleteCartItem(bookId: number,userId:any): Observable<Object> {
-    return this.http.delete(`${this.apiServerUrl}/user/deleteCartItem/${bookId}/${userId}`);
+  deleteCartItem(bookId: number, userId: any): Observable<Object> {
+    return this.http.delete(
+      `${this.apiServerUrl}/user/deleteCartItem/${bookId}/${userId}`
+    );
   }
 
   placeOrder(order: Order): Observable<Object> {
     return this.http.post(`${this.apiServerUrl}/user/placeOrder`, order);
   }
 
-  viewOrder(userId:any):Observable<Object>{
+  viewOrder(userId: any): Observable<Object> {
     return this.http.get(`${this.apiServerUrl}/user/viewOrders/${userId}`);
   }
 
-  viewAllOrders():Observable<Object>{
+  viewAllOrders(): Observable<Object> {
     return this.http.get(`${this.apiServerUrl}/admin/viewOrders`);
   }
 }

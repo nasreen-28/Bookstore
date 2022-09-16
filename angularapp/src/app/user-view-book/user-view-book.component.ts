@@ -18,13 +18,13 @@ export class UserViewBookComponent implements OnInit {
   userId: String;
   quantity: number;
   cart: CartItem = new CartItem();
-  snippets:String[];
+  snippets: String[];
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
     private cartService: CartService,
-    private toast:ToastrService,
-    private router:Router
+    private toast: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class UserViewBookComponent implements OnInit {
     });
     this.quantity = 1;
 
-   // this.snippets=["Hello","hi","How","Are","you"];
+    // this.snippets=["Hello","hi","How","Are","you"];
   }
 
   getBookById(bookId: number) {
@@ -64,30 +64,25 @@ export class UserViewBookComponent implements OnInit {
     // console.log(this.cart);
 
     if (this.cart.userId == null) {
-      this.toast.error('You must login to continue','Failure',{
-        positionClass: 'toast-top-right' 
-     })
-     // await sleep(2000);
-     // this.router.navigate(['/login'])
+      this.toast.error('You must login to continue', 'Failure', {
+        positionClass: 'toast-top-right',
+      });
+      // await sleep(2000);
+      // this.router.navigate(['/login'])
       //alert('You must login to continue');
     } else {
       this.cartService.addItemToCart(this.cart).subscribe(
         (data: any) => {
           console.log(data);
-          this.toast.success('Item added to cart','Success');
-         // alert('Item added to cart');
+          this.toast.success('Item added to cart', 'Success');
+          // alert('Item added to cart');
         },
-        (error: any) => this.toast.error('Please try again later','Something wrong')
+        (error: any) =>
+          this.toast.error('Please try again later', 'Something wrong')
       );
     }
   }
-
-  
 }
 function sleep(ms: number) {
-  return new Promise( resolve => setTimeout(resolve, ms) );
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-
-
-

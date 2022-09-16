@@ -36,7 +36,7 @@ public class CartServiceImpl implements CartService {
     List<Cart> userCart = cartRepository.findAllByUser(user);
     for (Cart cart2 : userCart) {
       Long bookId1 = cart2.getBook().getBookId();
-      if (bookId == bookId1) {
+      if (bookId == bookId1 && cart2.getOrderStatus()==null) {
         cart2.setQuantity(cart2.getQuantity() + cart.getQuantity());
         return cartRepository.save(cart2);
       }
@@ -44,6 +44,7 @@ public class CartServiceImpl implements CartService {
     cartItem.setBook(book);
     cartItem.setUser(user);
     cartItem.setQuantity(cart.getQuantity());
+    cartItem.setPrice(cartItem.getQuantity()*cartItem.getBook().getBookPrice());
     return cartRepository.save(cartItem);
 
   }
@@ -57,7 +58,7 @@ public class CartServiceImpl implements CartService {
         CartResponse cartResponse = new CartResponse();
         cartResponse.setBookId(cart.getBook().getBookId());
         cartResponse.setBookImageUrl(cart.getBook().getBookImageUrl());
-        cartResponse.setBookPrice(cart.getBook().getBookPrice());
+        cartResponse.setBookPrice(cart.getPrice());
         cartResponse.setBookTitle(cart.getBook().getBookTitle());
         cartResponse.setQuantity(cart.getQuantity());
         userCart.add(cartResponse);

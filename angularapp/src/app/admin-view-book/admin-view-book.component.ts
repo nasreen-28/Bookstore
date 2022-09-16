@@ -9,8 +9,8 @@ import { BookService } from '../book.service';
 })
 export class AdminViewBookComponent implements OnInit {
   books: Book[];
-  bookTitle:any;
-  p:number=1;
+  bookTitle: any;
+  page: number = 1;
 
   constructor(private bookService: BookService) {}
 
@@ -25,23 +25,22 @@ export class AdminViewBookComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
-search(){
-  if(this.bookTitle==""){
-    this.ngOnInit();
+  search() {
+    if (this.bookTitle == '') {
+      this.ngOnInit();
+    } else {
+      this.books = this.books.filter((res) => {
+        return res.bookTitle
+          .toLocaleLowerCase()
+          .includes(this.bookTitle.toLocaleLowerCase());
+      });
+    }
   }
-  else{
-    this.books=this.books.filter(res=>{
-      return res.bookTitle.toLocaleLowerCase().includes
-      (this.bookTitle.toLocaleLowerCase());
-    });
-  }
-}
-  deleteBook(bookId:number){
+  deleteBook(bookId: number) {
     this.bookService.deleteBook(bookId).subscribe(
       (data: any) => {
-       console.log("deleted");
-       window.location.reload();
-
+        console.log('deleted');
+        window.location.reload();
       },
       (error: any) => console.error(error)
     );

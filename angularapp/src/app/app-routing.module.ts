@@ -25,15 +25,15 @@ const routes: Routes = [
   { path: 'admin/editBook/:id', component: AdminEditBookComponent },
   { path: 'user/home', component: UserHomeComponent },
   { path: 'user/viewBook/:id', component: UserViewBookComponent },
-  {path:'user/profile',component:UserProfileComponent},
-  {path:'user/cart',component:UserCartComponent},
-  {path:'user/placeOrder',component:OrderPlacedComponent},
-  {path:'user/viewOrders',component:UserViewOrdersComponent},
-  {path:'admin/viewOrders',component:AdminOrdersComponent}
+  { path: 'user/profile', component: UserProfileComponent },
+  { path: 'user/cart', component: UserCartComponent },
+  { path: 'user/placeOrder', component: OrderPlacedComponent },
+  { path: 'user/viewOrders', component: UserViewOrdersComponent },
+  { path: 'admin/viewOrders', component: AdminOrdersComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

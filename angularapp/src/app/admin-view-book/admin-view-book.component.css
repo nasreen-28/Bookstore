@@ -2,10 +2,9 @@
   margin-top: 5%;
   margin-right: 5%;
 }
-.search{
+.search {
   width: 50%;
   margin-left: 20%;
-  
 }
 .vcard {
   margin-left: 10%;
@@ -45,8 +44,8 @@
   position: fixed;
 }
 
-
-.page{
+.page {
   margin-top: 3%;
   text-align: center;
-margin-bottom: 10%;}
+  margin-bottom: 10%;
+}

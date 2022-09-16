@@ -4,28 +4,49 @@
 <div class="content">
   <div class="input-group search">
     <span class="input-group-text" bg-white> <i class="bi bi-search"></i></span>
-    <input class="form-control  border-dark" type="search" name="bookTitle"  [(ngModel)]="bookTitle" (ngModelChange)="search()" placeholder="Enter a book to search">
-    
-</div>
+    <input
+      class="form-control border-dark"
+      type="search"
+      name="bookTitle"
+      [(ngModel)]="bookTitle"
+      (ngModelChange)="search()"
+      placeholder="Enter a book to search"
+    />
+  </div>
   <div class="row hcard">
-    <div *ngFor="let book of books | paginate:{itemsPerPage:6,currentPage:p}" class="col-md-6 col-xl-4">
+    <div
+      *ngFor="let book of books | paginate: { itemsPerPage: 6, currentPage: page }"
+      class="col-md-6 col-xl-4"
+    >
       <div class="card vcard" style="width: 20rem">
-        <img class="card-img-top" src="{{ book?.bookImageUrl }}" alt="Card image cap" style="height: 18rem" />
+        <img
+          class="card-img-top"
+          src="{{ book?.bookImageUrl }}"
+          alt="Card image cap"
+          style="height: 18rem"
+        />
         <div class="card-body cbody">
           <h5 class="card-title">{{ book?.bookTitle }}</h5>
           <p class="card-text">Rs. {{ book.bookPrice }}</p>
         </div>
 
         <div class="card-footer cfoot">
-          <a [routerLink]="['/admin/editBook/', book.bookId]" routerLinkActive="router-link-active" role="button"><i
-              class="bi bi-pencil-square edit"></i></a>
-          <a role="button" (click)="deleteBook(book.bookId)"><i class="bi bi-trash-fill delete"></i></a>
+          <a
+            [routerLink]="['/admin/editBook/', book.bookId]"
+            routerLinkActive="router-link-active"
+            role="button"
+            ><i class="bi bi-pencil-square edit"></i
+          ></a>
+          <a role="button" (click)="deleteBook(book.bookId)"
+            ><i class="bi bi-trash-fill delete"></i
+          ></a>
         </div>
       </div>
     </div>
   </div>
-  
-  <div class="page"><pagination-controls  (pageChange)="p = $event"></pagination-controls>
 
+  <div class="page">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

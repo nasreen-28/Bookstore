@@ -19,27 +19,27 @@ export class UserCartComponent implements OnInit {
   cartitems: UserCart[];
   userId: any;
   total: number;
-  cartlength:number=0;
+  cartlength: number = 0;
 
   constructor(
     private cartService: CartService,
     private toast: ToastrService,
     private router: Router,
-    private contactService:ContactService
+    private contactService: ContactService
   ) {}
 
   ngOnInit(): void {
     this.getUserCart();
   }
-  
+
   plus() {
     throw new Error('Method not implemented.');
   }
-  
+
   minus() {
     throw new Error('Method not implemented.');
   }
-  
+
   getUserCart() {
     this.userId = sessionStorage.getItem('userId');
     this.cartService.getUserCart(this.userId).subscribe(
@@ -52,7 +52,7 @@ export class UserCartComponent implements OnInit {
 
         this.shipping = this.randomInt(30, 50);
         this.total = this.subtotal + this.shipping;
-        this.cartlength=this.cartitems.length;
+        this.cartlength = this.cartitems.length;
         if (this.cartitems.length == 0) {
           this.toast.error('Your cart is empty', 'Failure');
         }
@@ -71,28 +71,27 @@ export class UserCartComponent implements OnInit {
     this.cartService.placeOrder(this.order).subscribe(
       (data: any) => {
         //this.books = data;
-        console.log(data)
-        sessionStorage.setItem('orderId',data.orderId);
-        sessionStorage.setItem('orderDate',data.createdDate);
-        sessionStorage.setItem('noOfItems',data.cartItem.length);
-        sessionStorage.setItem('totalAmount',data.amount);
+        console.log(data);
+        sessionStorage.setItem('orderId', data.orderId);
+        sessionStorage.setItem('orderDate', data.createdDate);
+        sessionStorage.setItem('noOfItems', data.cartItem.length);
+        sessionStorage.setItem('totalAmount', data.amount);
         console.log(sessionStorage);
       },
       (error: any) => console.error(error)
     );
   }
   getAddress() {
-    this.contactService.getAddress(this.userId).subscribe(
-      (data: any) => {
-        console.log(data);
-       // this.toast.success('Item added to cart','Success');
-       // alert('Item added to cart');
-      if(data==null)
-      {
-        this.toast.warning('Please update your profile','Wanring')
+    this.contactService.getAddress(this.userId).subscribe((data: any) => {
+      console.log(data);
+      // this.toast.success('Item added to cart','Success');
+      // alert('Item added to cart');
+      if (data == null) {
+        this.toast.warning('Please update your profile', 'Wanring');
       }
-      (error: any) => this.toast.error('Please try again later','Something wrong')
-  });
+      (error: any) =>
+        this.toast.error('Please try again later', 'Something wrong');
+    });
   }
   deleteCartItem(bookId: number) {
     this.cartService.deleteCartItem(bookId, this.userId).subscribe(
@@ -103,7 +102,7 @@ export class UserCartComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
-  
+
   randomInt(min: number, max: number) {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);

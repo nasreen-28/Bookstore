@@ -4,36 +4,63 @@
     <div class="navbar-collapse offcanvas-collapse">
       <ul class="navbar-nav ms-auto navbar-nav-scroll">
         <li class="nav-item">
-          <a class="nav-link white" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+          <a
+            class="nav-link white"
+            [routerLink]="['/login']"
+            routerLinkActive="router-link-active"
+            >Login</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link white" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Signup</a>
+          <a
+            class="nav-link white"
+            [routerLink]="['/signup']"
+            routerLinkActive="router-link-active"
+            >Signup</a
+          >
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="content">
-  <img class="image-fluid bookbg" src="assets/bookbg.jpg" alt="book" width="100%" height="100%" />
+  <img
+    class="image-fluid bookbg"
+    src="assets/bookbg.jpg"
+    alt="book"
+    width="100%"
+    height="100%"
+  />
   <div class="col d-flex justify-content-center">
     <div class="card bg-white" style="height: 35rem">
       <div class="card-body">
         <div class="row">
           <div class="col-6">
-            <img class="image-fluid bookimg" src="assets/reading-glasses-animate.svg" width="100%" height="100%" />
+            <img
+              class="image-fluid bookimg"
+              src="assets/reading-glasses-animate.svg"
+              width="100%"
+              height="100%"
+            />
           </div>
           <div class="col-6 cont">
             <h3>Don't judge a book</h3>
             <br />
             <h3>
-              by its <b><i>cover</i></b>,
+              by its <b><i>cover</i></b
+              >,
             </h3>
             <br />
             <h3>
               but by its <b><i> content </i></b>!
             </h3>
             <br />
-            <a [routerLink]="['/user/home']" routerLinkActive="router-link-active"  class="btn btn-dark butcta">Explore</a>
+            <a
+              [routerLink]="['/user/home']"
+              routerLinkActive="router-link-active"
+              class="btn btn-dark butcta"
+              >Explore</a
+            >
           </div>
         </div>
       </div>

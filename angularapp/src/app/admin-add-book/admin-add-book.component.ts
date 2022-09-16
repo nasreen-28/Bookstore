@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-add-book',
@@ -11,19 +12,19 @@ import { Router } from '@angular/router';
 export class AdminAddBookComponent {
   book: Book = new Book();
 
-  constructor(private bookService: BookService, private router: Router) {}
+  constructor(private bookService: BookService, private router: Router,private toast:ToastrService) {}
 
   onSubmit() {
     this.addBook(this.book);
-    alert('Book added successfully');
+    
   }
 
   addBook(newbook: Book) {
     this.bookService.addBook(newbook).subscribe(
       (data: any) => {
-        console.log(data);
+      this.toast.success('Book added successfully','Success')
       },
-      (error: any) => console.error(error)
+      (error: any) => this.toast.error('Please try again later','Something wrong')
     );
     this.router.navigate(['/admin/viewBook']);
   }

@@ -51,6 +51,7 @@ public class OrderServiceImpl implements OrderService {
          temp.setBook(book);
          temp.setQuantity(cart.getQuantity());
          temp.setUser(user);
+         temp.setPrice(cart.getBookPrice());
          temp.setOrderStatus("Placed");
          System.out.println(temp.toString());
          cartItems.add(temp);

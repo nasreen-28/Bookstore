@@ -1,38 +1,26 @@
 <app-user-nav></app-user-nav>
 <div class="content">
-    <div class="row title" *ngIf="orderitems!=null">
-        <div class="col-3">
-            <p>Order Id</p>
-        </div>
-        <div class="col-7">
-           Items
-        </div>
-        <div class="col-2">
-            Amount
-
-        </div>
+  <div class="row title" *ngIf="orderitems != null">
+    <div class="col-3">
+      <p>Order Id</p>
     </div>
-    <div *ngFor="let view of orderitems " class="margin">
-        <div class="row">
-            <div class="col-3">
-                <p>{{view.orderId}}</p>
-            </div>
-            <div class="col-7">
-                <div *ngFor="let cart of view.cartItem">
-                    <p>{{cart.bookTitle}}</p>
-                </div>
-            </div>
-            <div class="col-2">
-                <p>{{view.amount}}</p>
-    
-            </div>
+    <div class="col-7">Items</div>
+    <div class="col-2">Amount</div>
+  </div>
+  <div *ngFor="let view of orderitems" class="margin">
+    <div class="row">
+      <div class="col-3">
+        <p>{{ view.orderId }}</p>
+      </div>
+      <div class="col-7">
+        <div *ngFor="let cart of view.cartItem">
+          <p>{{ cart.bookTitle }}</p>
         </div>
-        <hr>
-        
-       
-    
-            
-        
+      </div>
+      <div class="col-2">
+        <p>{{ view.amount }}</p>
+      </div>
     </div>
-    
+    <hr />
+  </div>
 </div>

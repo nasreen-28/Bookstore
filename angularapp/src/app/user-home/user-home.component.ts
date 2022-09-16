@@ -5,26 +5,26 @@ import { BookService } from '../book.service';
 @Component({
   selector: 'app-user-home',
   templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  styleUrls: ['./user-home.component.css'],
 })
 export class UserHomeComponent implements OnInit {
   books: Book[];
-  bookTitle:any;
-  p:number=1;
-  
-  constructor(private bookService: BookService) { }
+  bookTitle: any;
+  p: number = 1;
+
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
     this.getUserBooks();
   }
-  search(){
-    if(this.bookTitle==""){
+  search() {
+    if (this.bookTitle == '') {
       this.ngOnInit();
-    }
-    else{
-      this.books=this.books.filter(res=>{
-        return res.bookTitle.toLocaleLowerCase().includes
-        (this.bookTitle.toLocaleLowerCase());
+    } else {
+      this.books = this.books.filter((res) => {
+        return res.bookTitle
+          .toLocaleLowerCase()
+          .includes(this.bookTitle.toLocaleLowerCase());
       });
     }
   }
@@ -35,8 +35,5 @@ export class UserHomeComponent implements OnInit {
       },
       (error: any) => console.error(error)
     );
-
   }
-
-
 }

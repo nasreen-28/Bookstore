@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../cart.service';
 import { OrderItem } from '../order-item';
-import { ViewOrder } from '../view-order';
 
 @Component({
   selector: 'app-user-view-orders',

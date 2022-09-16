@@ -5,13 +5,12 @@ import { environment } from 'src/environments/environment';
 import { Book } from './book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookService {
-  
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   addBook(book: Book): Observable<Object> {
     return this.http.post(`${this.apiServerUrl}/admin/addBook`, book);
@@ -26,7 +25,9 @@ export class BookService {
   }
 
   getBookById(bookId: number) {
-    return this.http.get<Book>(`${this.apiServerUrl}/admin/getBookById/${bookId}`)
+    return this.http.get<Book>(
+      `${this.apiServerUrl}/admin/getBookById/${bookId}`
+    );
   }
 
   updateBook(book: Book, bookId: number): Observable<Object> {

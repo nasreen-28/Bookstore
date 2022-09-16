@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user-nav',
   templateUrl: './user-nav.component.html',
-  styleUrls: ['./user-nav.component.css']
+  styleUrls: ['./user-nav.component.css'],
 })
-export class UserNavComponent implements OnInit {
+export class UserNavComponent {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  logout() {
+    sessionStorage.clear();
   }
-logout(){
-  sessionStorage.clear();
-}
 }

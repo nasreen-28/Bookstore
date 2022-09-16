@@ -1,20 +1,20 @@
 .content {
-    background-color: lightgrey;
-    width: 500px;
-    margin-left: 35%;
-    margin-top: 10%;
-    border: 1px solid green;
-    padding: 50px;
-   
-    text-align: center;
-  }
+  background-color: lightgrey;
+  width: 500px;
+  margin-left: 35%;
+  margin-top: 10%;
+  border: 1px solid green;
+  padding: 50px;
 
-  .icon{
-    color: green;
-    font-size: 40px;
-  }
+  text-align: center;
+}
 
-  .summary{
-    margin-top: 3%;
-    text-align: left;
-  }
+.icon {
+  color: green;
+  font-size: 40px;
+}
+
+.summary {
+  margin-top: 3%;
+  text-align: left;
+}

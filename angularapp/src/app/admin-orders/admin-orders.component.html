@@ -1,54 +1,34 @@
-<app-user-nav></app-user-nav>
+<app-admin-nav></app-admin-nav>
 <div class="content">
-    <div class="row title" *ngIf="orderitems!=null">
-        <div class="col-2">
-            <p>Order Id</p>
-        </div>
-        <div class="col-4">
-           Items
-        </div>
-        <div class="col-2">
-            Amount
-
-        </div>
-        <div class="col-2">
-            Username
-
-        </div>
-        <div class="col-2">
-            Address
-
-        </div>
+  <div class="row title" *ngIf="orderitems != null">
+    <div class="col-2">
+      <p>Order Id</p>
     </div>
-    <div *ngFor="let view of orderitems " class="margin">
-        <div class="row">
-            <div class="col-2">
-                <p>{{view.orderId}}</p>
-            </div>
-            <div class="col-4">
-                <div *ngFor="let cart of view.cartItem">
-                    <p>{{cart.bookTitle}}</p>
-                </div>
-            </div>
-            <div class="col-2">
-                <p>{{view.amount}}</p>
-    
-            </div>
-            <div class="col-2">
-                <p>{{view.userName}}</p>
-    
-            </div>
-            <div class="col-2">
-                <p>{{view.address}}</p>
-    
-            </div>
+    <div class="col-4">Items</div>
+    <div class="col-2">Amount</div>
+    <div class="col-2">Username</div>
+    <div class="col-2">Address</div>
+  </div>
+  <div *ngFor="let view of orderitems" class="margin">
+    <div class="row">
+      <div class="col-2">
+        <p>{{ view.orderId }}</p>
+      </div>
+      <div class="col-4">
+        <div *ngFor="let cart of view.cartItem">
+          <p>{{ cart.bookTitle }}</p>
         </div>
-        <hr>
-        
-       
-    
-            
-        
+      </div>
+      <div class="col-2">
+        <p>{{ view.amount }}</p>
+      </div>
+      <div class="col-2">
+        <p>{{ view.userName }}</p>
+      </div>
+      <div class="col-2">
+        <p>{{ view.address }}</p>
+      </div>
     </div>
-    
+    <hr />
+  </div>
 </div>

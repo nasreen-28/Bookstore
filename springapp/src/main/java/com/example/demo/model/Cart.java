@@ -28,5 +28,7 @@ public class Cart {
 
   private int quantity;
 
+  private Double price;
+
   private String orderStatus;
 }

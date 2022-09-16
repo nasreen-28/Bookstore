@@ -22,7 +22,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import {Ng2OrderModule} from 'ng2-order-pipe'
+import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
 import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
@@ -47,8 +47,7 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
     UserCartComponent,
     OrderPlacedComponent,
     UserViewOrdersComponent,
-    AdminOrdersComponent
-   
+    AdminOrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,13 +56,12 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot(),
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule
-    
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

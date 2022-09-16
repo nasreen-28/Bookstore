@@ -1,8 +1,7 @@
 export class Signup {
-    name : string;
-    emailId : string;
-    mobileNumber : string;
-    password : string;
-    role:string;
-    
+  name: string;
+  emailId: string;
+  mobileNumber: string;
+  password: string;
+  role: string;
 }
