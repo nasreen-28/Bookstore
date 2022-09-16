@@ -13,5 +13,4 @@ public interface OrderService {
 
     List<ViewOrder> viewAllOrders();
 
-   // Purchase placeOrder(Purchase purchase);
 }

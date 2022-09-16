@@ -60,51 +60,46 @@ public class UserController {
 
     @GetMapping("/getUserCart/{id}")
     public List<CartResponse> getUserCart(@PathVariable Long id) {
-       // Long userId = Long.parseLong(id);
-        //System.out.println(userId);
+        // Long userId = Long.parseLong(id);
+        // System.out.println(userId);
         return cartService.getUserCart(id);
     }
 
     @DeleteMapping("/deleteCartItem/{bookId}/{userId}")
-    public void deleteCartItem(@PathVariable Long bookId,@PathVariable Long userId){
-       // Long userId2 = Long.parseLong(userId);
-        cartService.deleteCartItem(bookId,userId);
+    public void deleteCartItem(@PathVariable Long bookId, @PathVariable Long userId) {
+        // Long userId2 = Long.parseLong(userId);
+        cartService.deleteCartItem(bookId, userId);
     }
 
     @PostMapping("/addContact/{userId}")
-    public Contact addContact(@RequestBody Contact contact,@PathVariable Long userId)
-    {
-        return contactService.addContact(contact,userId);
+    public Contact addContact(@RequestBody Contact contact, @PathVariable Long userId) {
+        return contactService.addContact(contact, userId);
     }
 
-
     @GetMapping("/getContact/{userId}")
-    public Contact getContact(@PathVariable Long userId)
-    {
+    public Contact getContact(@PathVariable Long userId) {
         return contactService.getContactByUser(userId);
-       
+
     }
 
     @PostMapping("/addAddress/{userId}")
-    public Address addAddress(@RequestBody Address address,@PathVariable Long userId)
-    {
-        return addressService.addAddress(address,userId);
+    public Address addAddress(@RequestBody Address address, @PathVariable Long userId) {
+        return addressService.addAddress(address, userId);
     }
 
     @GetMapping("/getAddress/{userId}")
-    public Address getAddress(@PathVariable Long userId)
-    {
-       return addressService.getAddressByUser(userId);
-       
+    public Address getAddress(@PathVariable Long userId) {
+        return addressService.getAddressByUser(userId);
+
     }
+
     @PostMapping("/placeOrder")
-    public Order placeOrder(@RequestBody OrderRequest orderRequest)
-    {
+    public Order placeOrder(@RequestBody OrderRequest orderRequest) {
         return orderService.placeOrder(orderRequest);
     }
 
     @GetMapping("/viewOrders/{userId}")
-    public List<ViewOrder> viewOrders(@PathVariable Long userId){
+    public List<ViewOrder> viewOrders(@PathVariable Long userId) {
         return orderService.viewOrders(userId);
     }
 }

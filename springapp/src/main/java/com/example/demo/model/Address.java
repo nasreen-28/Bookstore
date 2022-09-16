@@ -25,6 +25,6 @@ public class Address {
     private String state;
     private String pincode;
     @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "user",referencedColumnName = "userid")
-    private User user; 
+    @JoinColumn(name = "user", referencedColumnName = "userid")
+    private User user;
 }

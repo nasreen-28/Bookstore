@@ -9,7 +9,7 @@ import com.example.demo.repository.AddressRepository;
 import com.example.demo.repository.UserRepository;
 
 @Service
-public class AddressServiceImpl implements AddressService{
+public class AddressServiceImpl implements AddressService {
 
     @Autowired
     private UserRepository userRepository;
@@ -18,8 +18,8 @@ public class AddressServiceImpl implements AddressService{
     private AddressRepository addressRepository;
 
     @Override
-    public Address addAddress(Address address,Long userId) {
-        User user=userRepository.findById(userId).get();
+    public Address addAddress(Address address, Long userId) {
+        User user = userRepository.findById(userId).get();
         address.setUser(user);
         return addressRepository.save(address);
     }
@@ -28,5 +28,5 @@ public class AddressServiceImpl implements AddressService{
     public Address getAddressByUser(Long userId) {
         return addressRepository.findAddressByUser(userId);
     }
-    
+
 }

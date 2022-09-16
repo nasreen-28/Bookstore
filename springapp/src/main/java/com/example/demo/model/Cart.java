@@ -18,10 +18,6 @@ public class Cart {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  /*
-   * @Column(name = "created_date")
-   * private Date createdDate;
-   */
   @ManyToOne
   @JoinColumn(name = "book", referencedColumnName = "bookId")
   private Book book;

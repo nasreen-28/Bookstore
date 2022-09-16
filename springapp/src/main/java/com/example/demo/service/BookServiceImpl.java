@@ -9,7 +9,7 @@ import com.example.demo.model.Book;
 import com.example.demo.repository.BookRepository;
 
 @Service
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
@@ -19,8 +19,8 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public Book updateBook(Book book,Long id) {
-        Book oldBook=bookRepository.getByBookId(id);
+    public Book updateBook(Book book, Long id) {
+        Book oldBook = bookRepository.getByBookId(id);
         oldBook.setBookTitle(book.getBookTitle());
         oldBook.setBookDesc(book.getBookDesc());
         oldBook.setBookImageUrl(book.getBookImageUrl());
@@ -38,13 +38,13 @@ public class BookServiceImpl implements BookService{
     @Override
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
-        
+
     }
 
     @Override
     public Book getBookById(Long bookId) {
-        Book book=bookRepository.findById(bookId).get();
+        Book book = bookRepository.findById(bookId).get();
         return book;
     }
-    
+
 }

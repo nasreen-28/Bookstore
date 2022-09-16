@@ -23,6 +23,6 @@ public class Contact {
     private String emailId;
     private String mobileNumber;
     @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "user",referencedColumnName = "userid")
+    @JoinColumn(name = "user", referencedColumnName = "userid")
     private User user;
 }

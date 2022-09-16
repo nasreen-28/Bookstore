@@ -18,7 +18,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-
 import lombok.Data;
 
 @Entity
@@ -34,9 +33,7 @@ public class Order {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL)
- //   @JoinColumn(name = "order_id", referencedColumnName = "id")
     @JoinTable(name = "cart_order", joinColumns = @JoinColumn(name = "orderId"), inverseJoinColumns = @JoinColumn(name = "id"))
-
     private List<Cart> cartItem;
 
     private Double amount;
@@ -49,67 +46,4 @@ public class Order {
     @CreationTimestamp
     private Date createdDate;
 
-    public Order(Long id, User user, List<Cart> cartItem, Double amount, Address address, Date createdDate) {
-        this.orderId = id;
-        this.user = user;
-        this.cartItem = cartItem;
-        this.amount = amount;
-        this.address = address;
-        this.createdDate = createdDate;
-    }
-
-    public Long getId() {
-        return orderId;
-    }
-
-    public void setId(Long id) {
-        this.orderId = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Cart> getCartItem() {
-        return cartItem;
-    }
-
-    public void setCartItem(List<Cart> cartItem) {
-        this.cartItem = cartItem;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Order() {
-    }
-
-    
-
 }
-

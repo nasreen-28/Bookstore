@@ -56,8 +56,7 @@ public class AdminController {
     }
 
     @GetMapping("/viewOrders")
-    public List<ViewOrder> viewAllOrders()
-    {
+    public List<ViewOrder> viewAllOrders() {
         return orderService.viewAllOrders();
     }
 

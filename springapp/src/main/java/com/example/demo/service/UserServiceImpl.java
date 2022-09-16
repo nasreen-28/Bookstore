@@ -43,27 +43,27 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<?> authenticateUser(User loginRequest) {
-       // String email = loginRequest.getEmailId();
-    //User usermodel = userRepository.findByEmailIdIgnoreCase(email);
-   
-      Authentication authentication = authenticationManager.authenticate(
-          new UsernamePasswordAuthenticationToken(loginRequest.getEmailId(), loginRequest.getPassword()));
+        // String email = loginRequest.getEmailId();
+        // User usermodel = userRepository.findByEmailIdIgnoreCase(email);
 
-      SecurityContextHolder.getContext().setAuthentication(authentication);
-      String jwt = jwtUtils.generateJwtToken(authentication);
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.getEmailId(), loginRequest.getPassword()));
 
-      UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-      List<String> roles = userDetails.getAuthorities().stream()
-          .map(item -> item.getAuthority())
-          .collect(Collectors.toList());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
 
-//      System.out.println("Login Successful!");
-      return ResponseEntity.ok(new JwtResponse(jwt,
-          userDetails.getId(),
-          userDetails.getUsername(),
-          userDetails.getEmail(),
-          roles));
-   
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(item -> item.getAuthority())
+                .collect(Collectors.toList());
+
+        // System.out.println("Login Successful!");
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getUsername(),
+                userDetails.getEmail(),
+                roles));
+
     }
 
     @Override
@@ -77,8 +77,8 @@ public class UserServiceImpl implements UserService {
                     signUpRequest.getEmailId(),
                     encoder.encode(signUpRequest.getPassword()), signUpRequest.getMobileNumber());
 
-          //  List<String> strRoles = signUpRequest.getRole();
-          String strRoles = signUpRequest.getRole();
+            // List<String> strRoles = signUpRequest.getRole();
+            String strRoles = signUpRequest.getRole();
             Set<Role> roles = new HashSet<>();
 
             if (strRoles == null) {
@@ -86,20 +86,20 @@ public class UserServiceImpl implements UserService {
                         .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                 roles.add(userRole);
             } else {
-              //  strRoles.forEach(role -> {
-                    switch (strRoles) {
-                        case "ROLE_ADMIN":
-                            Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-                                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                            roles.add(adminRole);
+                // strRoles.forEach(role -> {
+                switch (strRoles) {
+                    case "ROLE_ADMIN":
+                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(adminRole);
 
-                            break;
-                        default:
-                            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                            roles.add(userRole);
-                    //}
-                }//);
+                        break;
+                    default:
+                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(userRole);
+                        // }
+                }// );
             }
 
             user.setRoles(roles);
@@ -114,9 +114,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmailId(username)
-        .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
-    return UserDetailsImpl.build(user);
+        return UserDetailsImpl.build(user);
     }
 
 }
