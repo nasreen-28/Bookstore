@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Address } from '../address';
-import { ContactService } from '../contact.service';
-import { Contact } from './customer';
+import { Address } from '../_classes/address';
+import { ContactService } from '../_services/contact.service';
+import { Contact } from '../_classes/contact';
 
 @Component({
   selector: 'app-user-profile',

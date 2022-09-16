@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { CartService } from '../cart.service';
-import { OrderItem } from '../order-item';
+import { CartService } from '../_services/cart.service';
+import { OrderItem } from '../_classes/order-item';
 
 @Component({
   selector: 'app-user-view-orders',
@@ -19,9 +19,12 @@ export class UserViewOrdersComponent implements OnInit {
     this.cartService.viewOrder(this.userId).subscribe(
       (data: any) => {
         this.orderitems = data;
+        if(this.orderitems.length==0){
+          this.toast.error('You have no orders yet', 'Failure')
+        }
         console.log(this.orderitems);
       },
-      (error: any) => this.toast.error('You have no orders yet', 'Failure') //this.toast.error('Please try again later','Something wrong')
+      (error: any) => this.toast.error('Please try again later','Something wrong')
     );
   }
 }

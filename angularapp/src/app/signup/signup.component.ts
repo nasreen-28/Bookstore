@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Signup } from './signup';
-import { SignupService } from './signup.service';
+import { Signup } from '../_classes/signup';
+import { SignupService } from '../_services/signup.service';
 
 @Component({
   selector: 'app-signup',

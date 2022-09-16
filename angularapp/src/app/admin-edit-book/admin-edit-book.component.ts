@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Book } from '../book';
-import { BookService } from '../book.service';
+import { Book } from '../_classes/book';
+import { BookService } from '../_services/book.service';
 
 @Component({
   selector: 'app-admin-edit-book',
   templateUrl: './admin-edit-book.component.html',
-  styleUrls: ['./admin-edit-book.component.css']
+  styleUrls: ['./admin-edit-book.component.css'],
 })
 export class AdminEditBookComponent implements OnInit {
   bookId: number;
   book: Book;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private bookService: BookService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(paramsId => {
+    this.route.params.subscribe((paramsId) => {
       this.bookId = paramsId['id'];
     });
     this.getBookById(this.bookId);
@@ -43,5 +47,4 @@ export class AdminEditBookComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
-
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ContactService } from '../contact.service';
-import { Signup } from '../signup/signup';
-import { SignupService } from '../signup/signup.service';
+import { ContactService } from '../_services/contact.service';
+import { Signup } from '../_classes/signup';
+import { SignupService } from '../_services/signup.service';
 
 @Component({
   selector: 'app-login',
@@ -33,6 +33,7 @@ export class LoginComponent {
           this.getAddress();
         } else if (data.roles[0] == 'ROLE_ADMIN') {
           sessionStorage.setItem('adminName', data.username);
+          sessionStorage.setItem('Admin', 'ADMIN');
           this.router.navigate(['/admin/home']);
         }
       },

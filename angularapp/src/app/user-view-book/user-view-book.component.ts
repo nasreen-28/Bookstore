@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Book } from '../book';
-import { BookService } from '../book.service';
-import { CartItem } from '../cartitem';
-import { CartService } from '../cart.service';
-import { Signup } from '../signup/signup';
+import { Book } from '../_classes/book';
+import { BookService } from '../_services/book.service';
+import { CartItem } from '../_classes/cartitem';
+import { CartService } from '../_services/cart.service';
+import { Signup } from '../_classes/signup';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CartService } from '../cart.service';
-import { ContactService } from '../contact.service';
-import { Order } from '../order';
-import { UserCart } from '../user-cart';
+import { CartService } from '../_services/cart.service';
+import { ContactService } from '../_services/contact.service';
+import { Order } from '../_classes/order';
+import { UserCart } from '../_classes/user-cart';
 
 @Component({
   selector: 'app-user-cart',
