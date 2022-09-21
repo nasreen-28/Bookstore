@@ -26,7 +26,7 @@ import com.example.demo.service.UserServiceImpl;
     prePostEnabled = true)
 @SuppressWarnings("deprecated")
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
+  @Autowired
   UserServiceImpl userDetailsService;
 
   @Autowired
@@ -38,7 +38,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
-  UserServiceImpl userServiceImpl(){
+  UserServiceImpl userServiceImpl() {
     return new UserServiceImpl();
   }
 
@@ -61,10 +61,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable()
-      .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-      .authorizeRequests().antMatchers("/**").permitAll()
-      .anyRequest().authenticated();
+        .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+        .authorizeRequests().antMatchers("/**").permitAll()
+        .anyRequest().authenticated();
 
     http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
   }

@@ -53,7 +53,6 @@ public class UserController {
 
     @PostMapping("/addToCart")
     public Cart addToCart(@RequestBody CartRequest cart) {
-        System.out.println(cart);
         return cartService.addToCart(cart);
         // return null;
     }

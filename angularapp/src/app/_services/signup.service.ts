@@ -18,4 +18,8 @@ export class SignupService {
   login(user: Signup): Observable<Object> {
     return this.http.post(`${this.apiServerUrl}/signin`, user);
   }
+
+  loggedIn(){
+    return !!sessionStorage.getItem('token');
+  }
 }

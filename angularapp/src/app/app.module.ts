@@ -27,6 +27,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
 import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
     Ng2OrderModule,
     NgxPaginationModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

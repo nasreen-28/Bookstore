@@ -40,7 +40,6 @@ public class AdminController {
 
     @GetMapping("/getBookById/{bookId}")
     public Book getBookById(@PathVariable Long bookId) {
-        System.out.println(bookService.getBookById(bookId));
         return bookService.getBookById(bookId);
     }
 

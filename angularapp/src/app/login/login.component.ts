@@ -30,10 +30,12 @@ export class LoginComponent {
         if (data.roles[0] == 'ROLE_USER') {
           sessionStorage.setItem('userName', data.username);
           sessionStorage.setItem('userId', data.id);
+          sessionStorage.setItem('token',data.accessToken);
           this.getAddress();
         } else if (data.roles[0] == 'ROLE_ADMIN') {
           sessionStorage.setItem('adminName', data.username);
           sessionStorage.setItem('Admin', 'ADMIN');
+          sessionStorage.setItem('token',data.accessToken);
           this.router.navigate(['/admin/home']);
         }
       },
