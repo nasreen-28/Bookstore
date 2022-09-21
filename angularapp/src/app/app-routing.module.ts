@@ -14,22 +14,55 @@ import { UserCartComponent } from './user-cart/user-cart.component';
 import { OrderPlacedComponent } from './order-placed/order-placed.component';
 import { UserViewOrdersComponent } from './user-view-orders/user-view-orders.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin/home', component: AdminHomeComponent },
-  { path: 'admin/addBook', component: AdminAddBookComponent },
-  { path: 'admin/viewBook', component: AdminViewBookComponent },
-  { path: 'admin/editBook/:id', component: AdminEditBookComponent },
+  {
+    path: 'admin/home',
+    component: AdminHomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/addBook',
+    component: AdminAddBookComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/viewBook',
+    component: AdminViewBookComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/editBook/:id',
+    component: AdminEditBookComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'user/home', component: UserHomeComponent },
   { path: 'user/viewBook/:id', component: UserViewBookComponent },
-  { path: 'user/profile', component: UserProfileComponent },
-  { path: 'user/cart', component: UserCartComponent },
-  { path: 'user/placeOrder', component: OrderPlacedComponent },
-  { path: 'user/viewOrders', component: UserViewOrdersComponent },
-  { path: 'admin/viewOrders', component: AdminOrdersComponent },
+  {
+    path: 'user/profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'user/cart', component: UserCartComponent, canActivate: [AuthGuard] },
+  {
+    path: 'user/placeOrder',
+    component: OrderPlacedComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user/viewOrders',
+    component: UserViewOrdersComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/viewOrders',
+    component: AdminOrdersComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
